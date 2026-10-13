@@ -59,7 +59,7 @@ export function Home() {
                 <div className="space-y-4">
                   <p className="text-[12px] font-bold text-[#8aa08a] uppercase tracking-wide">Recent searches</p>
                   <div className="flex flex-wrap gap-2">
-                    {["Jollof Rice", "Suya", "Yam Porridge", "Moi Moi", "Afang"].map(s => (
+                    {["Jollof Rice", "Suya", "Yam Porridge", "Moi-Moi", "Afang"].map(s => (
                       <button key={s} onClick={() => setQ(s)} className="bg-white border border-[#eef3ec] rounded-full px-4 py-2 text-[13px] font-semibold text-[#3a4a3a] hover:bg-[#eef3ec] transition cursor-pointer">{s}</button>
                     ))}
                   </div>
