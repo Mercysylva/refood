@@ -28,7 +28,7 @@ export const FOOD_CATALOG = [
   {
     id: "listing_002",
     businessId: "business_002",
-    name: "Suya Peppered Platter",
+    name: "Peppered Suya Platter",
     category: "Grills",
     description:
       "Well-spiced suya sliced from fresh beef, grilled over open coal with yaji spice. Served with onions and tomatoes.",
@@ -113,7 +113,7 @@ export const FOOD_CATALOG = [
   {
     id: "listing_007",
     businessId: "business_002",
-    name: "Moi Moi",
+    name: "Moi-Moi",
     category: "Meals",
     description:
       "Steamed bean pudding made with blended black-eyed peas, peppers and spices, wrapped in leaves. Soft and flavourful.",
