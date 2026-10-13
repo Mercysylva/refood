@@ -33,7 +33,7 @@ export function Home() {
             className="w-full bg-white border border-[#e2ece2] rounded-full pl-10 sm:pl-11 pr-4 py-3 sm:py-3.5 text-[13px] sm:text-[14px] text-[#0f2815] placeholder:text-[#8aa08a] placeholder:font-medium focus:outline-none focus:border-[#c8e0c8] focus:ring-4 focus:ring-[#eef6ec] font-medium transition-all"
           />
         </div>
-        {!searching && <p className="text-xs text-[#5a6b5a] mt-2.5 font-medium px-1"><span className="text-[#0f7a3b] font-bold">Try:</span> Jollof rice, Suya, Pounded Yam…</p>}
+        {!searching && <p className="text-xs text-[#5a6b5a] mt-2.5 font-medium px-1"><span className="text-[#0f7a3b] font-bold">Try:</span> Jollof rice, Suya, Yam porridge…</p>}
       </div>
 
       {searching && (
@@ -59,7 +59,7 @@ export function Home() {
                 <div className="space-y-4">
                   <p className="text-[12px] font-bold text-[#8aa08a] uppercase tracking-wide">Recent searches</p>
                   <div className="flex flex-wrap gap-2">
-                    {["Jollof Rice", "Suya", "Pounded Yam", "Moi Moi", "Plantain"].map(s => (
+                    {["Jollof Rice", "Suya", "Yam Porridge", "Moi Moi", "Afang"].map(s => (
                       <button key={s} onClick={() => setQ(s)} className="bg-white border border-[#eef3ec] rounded-full px-4 py-2 text-[13px] font-semibold text-[#3a4a3a] hover:bg-[#eef3ec] transition cursor-pointer">{s}</button>
                     ))}
                   </div>
