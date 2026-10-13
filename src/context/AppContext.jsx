@@ -4,7 +4,7 @@ import { businesses as initialBusinesses, initialListings, initialAddresses, ini
 const AppContext = createContext(null);
 export const useApp = () => useContext(AppContext);
 
-const STORAGE_KEY = "refood_state_v7";
+const STORAGE_KEY = "refood_state_v8";
 
 export const DEFAULT_AVATAR = "https://api.dicebear.com/7.x/avataaars/svg?seed=Mercy%20S.&backgroundColor=b6e3f4,c0aede,d1d4f9,ffd5dc";
 
@@ -36,7 +36,7 @@ export function AppProvider({ children }) {
       location: "Abuja, Nigeria"
     };
   });
-  const [businessUser] = useState({ id: "business_001", name: "Mega Kitchen Lekki", owner: "Mama B", email: "mama@kitchen.ng" });
+  const [businessUser] = useState({ id: "business_001", name: "Mama B Kitchen", owner: "Mama B", email: "mama@kitchen.ng" });
 
   const [listings, setListings] = useState(() => {
     const s = localStorage.getItem(STORAGE_KEY);
@@ -203,10 +203,10 @@ export function AppProvider({ children }) {
       status: "placed", // placed -> preparing -> ready -> delivered
       date: now.toISOString(),
       createdAt: now.toISOString(),
-      estimatedWindow: fulfillment === "delivery" ? "12:30 PM - 1:00 PM" : "6:00 PM - 8:00 PM",
+      estimatedWindow: fulfillment === "delivery" ? "12:30 PM to 1:00 PM" : "6:00 PM to 8:00 PM",
       businessId: items[0]?.businessId || "business_001",
-      businessName: "Mega Kitchen Lekki",
-      deliveryAddress: "12 Admiralty Way, Lekki Phase 1, Lagos",
+      businessName: "Mama B Kitchen",
+      deliveryAddress: "12 Example Street, Wuse 2, Abuja",
       customerPhone: "070 1234 5678",
       deliveryPin: "4 8 2 9",
     };
@@ -241,7 +241,7 @@ export function AppProvider({ children }) {
     clearCart();
     // notification
     const business = businesses.find(b => b.id === items[0]?.businessId);
-    setNotifications(prev => [{ id: Date.now().toString(), title: "Order confirmed!", body: `Your order #${orderId} from ${business?.name || "Mega Kitchen Lekki"} is confirmed.`, time: "Just now", read: false }, ...prev]);
+    setNotifications(prev => [{ id: Date.now().toString(), title: "Order confirmed!", body: `Your order #${orderId} from ${business?.name || "Mama B Kitchen"} is confirmed.`, time: "Just now", read: false }, ...prev]);
     return order;
   };
 
@@ -314,7 +314,7 @@ export function AppProvider({ children }) {
       const lower = cleanText.toLowerCase();
       let reply = "Thanks for the message! I am on my way with your order.";
       if (lower.includes("where") || lower.includes("location") || lower.includes("far") || lower.includes("reach") || lower.includes("time") || lower.includes("eta")) {
-        reply = "I just turned onto your street, about 3–4 minutes away from your location!";
+        reply = "I just turned onto your street, about 3 or 4 minutes away from your location!";
       } else if (lower.includes("gate") || lower.includes("call") || lower.includes("reach")) {
         reply = "Understood! I'll call your number (070 1234 5678) the moment I arrive at the security gate.";
       } else if (lower.includes("outside") || lower.includes("waiting") || lower.includes("stand")) {
