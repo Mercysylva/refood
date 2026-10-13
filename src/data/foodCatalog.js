@@ -79,12 +79,12 @@ export const FOOD_CATALOG = [
   {
     id: "listing_005",
     businessId: "business_005",
-    name: "Meat Pie (Pack of 3)",
+    name: "Meat Pie",
     category: "Pastries",
     description:
       "Flaky golden crust filled with seasoned minced meat, potatoes and carrots. Freshly baked this morning.",
     image:
-      "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=800&q=80&fit=crop",
+      "/food/meat-pie.jpg",
     originalPrice: 1800,
     surplusPrice: 900,
     quantity: 6,
@@ -113,12 +113,12 @@ export const FOOD_CATALOG = [
   {
     id: "listing_007",
     businessId: "business_002",
-    name: "White Moi Moi (2 Wraps)",
+    name: "Moi Moi",
     category: "Meals",
     description:
-      "Steamed bean pudding made with blended black-eyed peas, peppers and spices. Soft and flavourful.",
+      "Steamed bean pudding made with blended black-eyed peas, peppers and spices, wrapped in leaves. Soft and flavourful.",
     image:
-      "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=800&q=80&fit=crop",
+      "/food/moi-moi.jpg",
     originalPrice: 1200,
     surplusPrice: 600,
     quantity: 10,
