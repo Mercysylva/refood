@@ -115,7 +115,7 @@ export const initialOrders = [
         price: 1800,
         originalPrice: 3500,
         businessId: "business_001",
-        image: "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=800&q=80&fit=crop",
+        image: "/food/jollof-rice-chicken.jpg",
       },
     ],
   },
@@ -135,12 +135,12 @@ export const initialOrders = [
     items: [
       {
         listingId: "listing_003",
-        name: "Pounded Yam Porridge",
+        name: "Yam Porridge",
         qty: 1,
         price: 1500,
         originalPrice: 3000,
         businessId: "business_001",
-        image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=800&q=80&fit=crop",
+        image: "/food/yam-porridge.jpg",
       },
     ],
   },
