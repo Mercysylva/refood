@@ -34,12 +34,12 @@ export function FoodCard({ listing }) {
         )}
       </div>
       <div className="px-1.5 pt-1.5 pb-1 flex flex-col flex-1">
-        <p className="text-[10px] font-medium text-[#8aa08a] truncate flex items-center gap-1">
+        <p className="text-[10px] font-medium text-[#5a6b5a] truncate flex items-center gap-1">
           <IconMapPin size={12} className="shrink-0" />{listing.location}
         </p>
         <div className="mt-1 flex items-baseline gap-1.5">
           <p className="font-extrabold text-[16px] text-[#0f2815] whitespace-nowrap">{formatNaira(salePrice)}</p>
-          <p className="text-[11px] line-through text-[#9ab09a]">{formatNaira(wasPrice)}</p>
+          <p className="text-[11px] line-through text-[#6b7d6b]">{formatNaira(wasPrice)}</p>
         </div>
         <p
           className="mt-0.5 font-semibold sm:font-bold text-[12.5px] leading-snug text-[#0f2815] line-clamp-2 cursor-pointer hover:text-[#0f7a3b] transition"
@@ -66,19 +66,19 @@ export function FoodCard({ listing }) {
                   onClick={() => updateCartQty(listing.id, cartQty - 1)}
                   aria-label={cartQty === 1 ? "Remove from cart" : "Remove one"}
                   title={cartQty === 1 ? "Remove from cart" : "Remove one"}
-                  className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white text-[#0f7a3b] grid place-items-center shadow-sm active:scale-90 transition cursor-pointer"
+                  className="w-7 h-7 sm:w-9 sm:h-9 rounded-full bg-white text-[#0f7a3b] grid place-items-center shadow-sm active:scale-90 transition cursor-pointer"
                 >
                   {cartQty === 1 ? <IconTrash2 size={15} /> : <IconMinus size={15} />}
                 </button>
                 <span className="text-[11px] sm:text-[12.5px] font-extrabold text-[#0f7a3b] whitespace-nowrap" aria-live="polite">
-                  {cartQty} in cart
+                  {cartQty}<span className="sr-only sm:not-sr-only"> in cart</span>
                 </span>
                 <button
                   onClick={() => addToCart(listing.id, 1)}
                   disabled={atMax}
                   aria-label="Add one more"
                   title={atMax ? "No more available" : "Add one more"}
-                  className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#0f7a3b] text-white grid place-items-center active:scale-90 transition cursor-pointer disabled:bg-[#c8e0c8] disabled:cursor-not-allowed"
+                  className="w-7 h-7 sm:w-9 sm:h-9 rounded-full bg-[#0f7a3b] text-white grid place-items-center active:scale-90 transition cursor-pointer disabled:bg-[#c8e0c8] disabled:cursor-not-allowed"
                 >
                   <IconPlus size={15} />
                 </button>
@@ -87,14 +87,14 @@ export function FoodCard({ listing }) {
               <button
                 onClick={(e) => { e.stopPropagation(); addToCart(listing.id, 1); }}
                 title="Add to cart"
-                className="flex-1 min-w-0 h-10 sm:h-11 px-2 rounded-full text-[10px] sm:text-[12.5px] font-extrabold tracking-wide truncate transition active:scale-[0.98] cursor-pointer flex items-center justify-center gap-1.5 bg-[#0f2815] hover:bg-black text-white"
+                className="flex-1 min-w-0 h-10 sm:h-11 px-2 rounded-full text-[12px] sm:text-[13px] font-bold truncate transition active:scale-[0.98] cursor-pointer flex items-center justify-center gap-1.5 bg-[#0f2815] hover:bg-black text-white"
               >
-                ADD TO CART
+                Add to cart
               </button>
             )
           ) : (
-            <div className="flex-1 min-w-0 h-10 sm:h-11 px-2 rounded-full text-[10px] sm:text-[12.5px] font-extrabold bg-[#f7f8f6] text-[#8aa08a] grid place-items-center truncate">
-              UNAVAILABLE
+            <div className="flex-1 min-w-0 h-10 sm:h-11 px-2 rounded-full text-[12px] sm:text-[13px] font-bold bg-[#f7f8f6] text-[#5a6b5a] grid place-items-center truncate">
+              Unavailable
             </div>
           )}
         </div>

@@ -26,8 +26,8 @@ export function CustomerShell({ children }) {
           <p className="text-[12px] leading-[1.5] mt-1.5 text-[#0f2815] font-medium">Good food. Less waste.<br />Stronger communities.</p>
           <nav className="mt-6 space-y-1">
             <NavItem label="Home" icon={<IconHome />} active={route.name === "home"} onClick={() => navigate("home")} />
-            <NavItem label="Browse Surplus" icon={<IconGrid />} active={route.name === "browse"} onClick={() => navigate("browse")} />
-            <NavItem label="My Orders" icon={<IconClipboard />} active={["orders", "orderDetail", "trackOrder"].includes(route.name)} onClick={() => navigate("orders")} />
+            <NavItem label="Browse surplus" icon={<IconGrid />} active={route.name === "browse"} onClick={() => navigate("browse")} />
+            <NavItem label="My orders" icon={<IconClipboard />} active={["orders", "orderDetail", "trackOrder"].includes(route.name)} onClick={() => navigate("orders")} />
             <NavItem label="Favourites" icon={<IconHeart size={ICON_SIZE} />} active={route.name === "favorites"} onClick={() => navigate("favorites")} />
             <NavItem label="Profile" icon={<IconUser />} active={route.name === "profile"} onClick={() => navigate("profile")} />
           </nav>
@@ -35,14 +35,14 @@ export function CustomerShell({ children }) {
         <div className="p-5 pt-2">
           <SdgImpactCard />
           <button onClick={() => navigateTo("/business")} className="mt-2.5 w-full bg-[#0f2815] text-white py-2.5 rounded-xl text-xs font-bold hover:bg-[#163a1f] transition cursor-pointer">Business portal →</button>
-          <p className="text-[10px] text-[#8aa08a] text-center mt-1 font-medium">Are you a business? Manage at /business</p>
+          <p className="text-[10px] text-[#5a6b5a] text-center mt-1 font-medium">Are you a business? Manage at /business</p>
         </div>
       </aside>
 
       {/* Main Content Area */}
       <div className="lg:pl-[264px] flex flex-col min-h-screen">
         <TopBar />
-        <main className="px-3 sm:px-4 lg:px-8 pt-6 sm:pt-8 lg:pt-10 pb-24 sm:pb-24 lg:pb-8 max-w-[1100px] mx-auto w-full flex-1">
+        <main className="px-3 sm:px-4 lg:px-8 pt-6 sm:pt-8 lg:pt-10 pb-32 sm:pb-32 lg:pb-8 max-w-[1100px] mx-auto w-full flex-1">
           {children}
         </main>
       </div>
@@ -93,32 +93,32 @@ export function CustomerShell({ children }) {
                 </span>
               </button>
 
-              {/* My Pickup */}
+              {/* My Orders */}
               <button
                 onClick={() => navigate("orders")}
                 className="flex-1 flex flex-col items-center justify-center gap-1 py-1 transition active:scale-95 cursor-pointer"
               >
                 <div className={`transition-colors ${["orders", "orderDetail", "trackOrder"].includes(route.name) ? "text-[#00e676]" : "text-[#d1d5db]"}`}>
-                  <IconGrid size={20} />
+                  <IconClipboard size={20} />
                 </div>
                 <span className={`text-[10px] tracking-tight ${["orders", "orderDetail", "trackOrder"].includes(route.name) ? "font-bold text-[#00e676]" : "font-medium text-[#9ca3af]"}`}>
-                  My Pickup
+                  My orders
                 </span>
               </button>
 
               {/* Center Spacer for Floating Button */}
               <div className="w-16 shrink-0 pointer-events-none" />
 
-              {/* Notification */}
+              {/* Favourites */}
               <button
-                onClick={() => navigate("notifications")}
+                onClick={() => navigate("favorites")}
                 className="flex-1 flex flex-col items-center justify-center gap-1 py-1 transition active:scale-95 cursor-pointer"
               >
-                <div className={`transition-colors ${route.name === "notifications" ? "text-[#00e676]" : "text-[#d1d5db]"}`}>
-                  <IconBell size={20} />
+                <div className={`transition-colors ${route.name === "favorites" ? "text-[#00e676]" : "text-[#d1d5db]"}`}>
+                  <IconHeart size={20} />
                 </div>
-                <span className={`text-[10px] tracking-tight ${route.name === "notifications" ? "font-bold text-[#00e676]" : "font-medium text-[#9ca3af]"}`}>
-                  Notification
+                <span className={`text-[10px] tracking-tight ${route.name === "favorites" ? "font-bold text-[#00e676]" : "font-medium text-[#9ca3af]"}`}>
+                  Favourites
                 </span>
               </button>
 

@@ -62,14 +62,14 @@ export function TopBar() {
                 </button>
               </div>
               <div className="max-h-[320px] overflow-y-auto">
-                {notifications.length === 0 && <p className="text-center text-[13px] text-[#8aa08a] py-8 font-medium">No notifications yet</p>}
+                {notifications.length === 0 && <p className="text-center text-[13px] text-[#5a6b5a] py-8 font-medium">No notifications yet</p>}
                 {notifications.map(n => (
                   <div key={n.id} className={`px-4 py-3 flex gap-3 hover:bg-[#f7f8f6] transition cursor-pointer ${!n.read ? "bg-[#f0f7f0]" : ""}`}>
                     <span className={`w-2 h-2 rounded-full mt-1.5 shrink-0 ${!n.read ? "bg-[#0f7a3b]" : "bg-transparent"}`}></span>
                     <div className="flex-1 min-w-0">
                       <p className="text-[13px] font-bold text-[#0f2815] leading-tight">{n.title}</p>
                       <p className="text-[12px] text-[#5a6b5a] mt-0.5 leading-snug">{n.body}</p>
-                      <p className="text-[11px] text-[#8aa08a] mt-1">{n.time}</p>
+                      <p className="text-[11px] text-[#5a6b5a] mt-1">{n.time}</p>
                     </div>
                   </div>
                 ))}

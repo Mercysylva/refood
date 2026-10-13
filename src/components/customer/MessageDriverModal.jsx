@@ -74,7 +74,7 @@ export function MessageDriverModal({ isOpen = true, order, orderId, driverName =
         {calling ? (
           <div className="absolute inset-0 bg-[#0f2815] text-white z-20 flex flex-col items-center justify-between p-8">
             <div className="text-center pt-6">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#8aa08a]">ReFood In-App Secure Call</span>
+              <span className="text-xs font-bold uppercase tracking-widest text-[#5a6b5a]">ReFood In-App Secure Call</span>
               <p className="text-[22px] font-extrabold mt-2 text-white">{driverName}</p>
               <p className="text-sm text-emerald-400 font-medium mt-1">
                 {callTime > 1 ? `Connected (${fmtCallTime(callTime)})` : "Ringing..."}
@@ -109,7 +109,7 @@ export function MessageDriverModal({ isOpen = true, order, orderId, driverName =
                 onClick={() => setCalling(false)}
                 className="w-full py-4 rounded-2xl bg-red-600 hover:bg-red-700 text-white font-bold flex items-center justify-center gap-2 shadow-lg transition active:scale-95 cursor-pointer"
               >
-                <IconPhoneOff size={20} /> End Call
+                <IconPhoneOff size={20} /> End call
               </button>
             </div>
           </div>
@@ -156,7 +156,7 @@ export function MessageDriverModal({ isOpen = true, order, orderId, driverName =
         <div className="flex-1 p-4 overflow-y-auto space-y-3 bg-[#ffffff]">
           <div className="text-center my-2">
             <span className="text-[11px] font-bold bg-[#f1f6ef] text-[#5a6b5a] px-3 py-1 rounded-full border border-[#e2ece2]">
-              Live Delivery Chat • Order #{activeOrderId}
+              Live delivery chat • Order #{activeOrderId}
             </span>
           </div>
 
@@ -174,7 +174,7 @@ export function MessageDriverModal({ isOpen = true, order, orderId, driverName =
                   <p>{m.text}</p>
                 </div>
                 <div className="flex items-center gap-1 mt-1 px-1">
-                  <span className="text-[10px] text-[#8aa08a] font-medium">{m.time}</span>
+                  <span className="text-[10px] text-[#5a6b5a] font-medium">{m.time}</span>
                   {isUser && <span className="text-[10px] text-[#0f7a3b] font-bold">✓✓</span>}
                 </div>
               </div>
