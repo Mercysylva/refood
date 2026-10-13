@@ -4,7 +4,7 @@ import { businesses as initialBusinesses, initialListings, initialAddresses, ini
 const AppContext = createContext(null);
 export const useApp = () => useContext(AppContext);
 
-const STORAGE_KEY = "refood_state_v4";
+const STORAGE_KEY = "refood_state_v5";
 
 export const DEFAULT_AVATAR = "https://api.dicebear.com/7.x/avataaars/svg?seed=Mercy%20S.&backgroundColor=b6e3f4,c0aede,d1d4f9,ffd5dc";
 

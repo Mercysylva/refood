@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useApp } from '../../context/AppContext';
+import { NAIRA } from '../../utils/formatters';
 import { ListingImageField } from '../../components/common/ListingImageField';
 import { IconArrowLeft } from '../../components/common/Icons';
 
@@ -133,7 +134,7 @@ export function BusinessListingForm({ editId, navigateBusiness }) {
         {/* Pricing */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 p-4 bg-emerald-50/50 rounded-2xl border border-emerald-100">
           <div>
-            <label className="block text-xs font-bold text-gray-700 mb-1.5">Original Price (₦)</label>
+            <label className="block text-xs font-bold text-gray-700 mb-1.5">Original Price ({NAIRA})</label>
             <input
               type="number"
               step="100"
@@ -145,7 +146,7 @@ export function BusinessListingForm({ editId, navigateBusiness }) {
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-emerald-800 mb-1.5">Discount Price (₦)</label>
+            <label className="block text-xs font-bold text-emerald-800 mb-1.5">Discount Price ({NAIRA})</label>
             <input
               type="number"
               step="100"

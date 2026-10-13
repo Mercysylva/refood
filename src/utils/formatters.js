@@ -1,6 +1,11 @@
+// Correct double-stroked Naira sign (U+20A6). Single source of truth —
+// every price in the app renders through NAIRA / formatNaira below,
+// and index.css forces the U+20A6 subset font for this glyph.
+export const NAIRA = "₦";
+
 export function formatNaira(n) {
   if (typeof n !== "number") n = Number(n) || 0;
-  return "₦" + n.toLocaleString();
+  return NAIRA + n.toLocaleString();
 }
 
 // Single source of truth for the selling price.

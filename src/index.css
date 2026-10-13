@@ -1,7 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600&display=swap');
 @import "tailwindcss";
 
-* { font-family: "Plus Jakarta Sans", "Instrument Sans", system-ui, -apple-system, sans-serif; }
+/* "Noto Sans" here is a tiny subset (unicode-range U+20A6, loaded in index.html)
+   that only provides the double-stroked ₦ glyph. It never affects other text:
+   the browser uses it solely for the Naira sign and falls through to the app
+   fonts for everything else. */
+* { font-family: "Noto Sans", "Plus Jakarta Sans", "Instrument Sans", system-ui, -apple-system, sans-serif; }
 html { -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
 html, body { overflow-x: hidden; max-width: 100vw; }
 h1,h2,h3 { letter-spacing: -0.02em; line-height: 1.1; }

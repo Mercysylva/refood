@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useApp } from "../../context/AppContext";
-import { formatNaira, getListingPrice, getListingOriginalPrice } from "../../utils/formatters";
+import { formatNaira, getListingPrice, getListingOriginalPrice, NAIRA } from "../../utils/formatters";
 import {
   IconHeart, IconStar, IconStore, IconBike, ICON_SIZE, ICON_SM
 } from "../../components/common/Icons";
@@ -131,7 +131,7 @@ export function FoodDetail({ id }) {
                   onClick={() => setDeliveryType("delivery")}
                   className={`py-2 px-3 rounded-xl border text-xs font-semibold flex items-center justify-center gap-1.5 transition cursor-pointer ${deliveryType === "delivery" ? "border-[#0f7a3b] bg-[#eef6ec] text-[#0f7a3b]" : "border-[#e2ece2] text-[#5a6b5a] hover:bg-[#f7f8f6]"}`}
                 >
-                  <IconBike size={ICON_SIZE} /> Delivery (+₦500)
+                  <IconBike size={ICON_SIZE} /> Delivery (+{NAIRA}500)
                 </button>
               </div>
             </div>

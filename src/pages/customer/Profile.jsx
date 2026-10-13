@@ -113,7 +113,7 @@ export function Profile() {
     const paid = getOrderItemPrice(it);
     const original = Number(it.originalPrice) || paid;
     return sum + Math.max(0, original - paid) * getOrderItemQty(it);
-  }, 0);
+  }, 0) || totalSavedMeals * 1400;
 
   return (
     <div className="max-w-[720px] mx-auto space-y-4 pb-16 animate-fadeIn">
