@@ -9,17 +9,17 @@ import {
 import { formatNaira, getOrderItemPrice, getOrderItemQty } from '../../utils/formatters';
 
 const STATUS_FILTERS = [
-  { key: 'all', label: 'All Orders' },
-  { key: 'placed', label: 'Placed (New)' },
-  { key: 'preparing', label: 'Preparing (Kitchen)' },
-  { key: 'ready', label: 'Ready (With Rider)' },
+  { key: 'all', label: 'All orders' },
+  { key: 'placed', label: 'Placed (new)' },
+  { key: 'preparing', label: 'Preparing (kitchen)' },
+  { key: 'ready', label: 'Ready (with rider)' },
   { key: 'delivered', label: 'Delivered' },
 ];
 
 const STATUS_CONFIG = {
-  placed: { label: 'New Placed', bg: 'bg-amber-100 text-amber-800 border-amber-200', next: 'preparing', actionText: 'Accept & Cook' },
-  preparing: { label: 'In Kitchen', bg: 'bg-blue-100 text-blue-800 border-blue-200', next: 'ready', actionText: 'Hand to Rider' },
-  ready: { label: 'Out with Rider', bg: 'bg-purple-100 text-purple-800 border-purple-200', next: 'delivered', actionText: 'Confirm Delivered' },
+  placed: { label: 'New order', bg: 'bg-amber-100 text-amber-800 border-amber-200', next: 'preparing', actionText: 'Accept & cook' },
+  preparing: { label: 'In kitchen', bg: 'bg-blue-100 text-blue-800 border-blue-200', next: 'ready', actionText: 'Hand to rider' },
+  ready: { label: 'Out with rider', bg: 'bg-purple-100 text-purple-800 border-purple-200', next: 'delivered', actionText: 'Confirm delivered' },
   delivered: { label: 'Completed', bg: 'bg-emerald-100 text-emerald-800 border-emerald-200', next: null, actionText: null },
 };
 
@@ -36,7 +36,7 @@ export function BusinessOrders({ navigateBusiness }) {
     <div className="space-y-6 animate-fadeIn pb-16">
       {/* Header */}
       <div>
-        <h1 className="text-2xl font-black text-gray-900">Live Kitchen Orders</h1>
+        <h1 className="text-2xl font-black text-gray-900">Live kitchen orders</h1>
         <p className="text-xs text-gray-500">
           Advance order stages as kitchen cooks, packs, and dispatches food
         </p>
@@ -105,10 +105,10 @@ export function BusinessOrders({ navigateBusiness }) {
                 {/* Items & Address */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
                   <div className="space-y-1.5 bg-slate-50/70 p-3 rounded-2xl border border-gray-100">
-                    <p className="text-[11px] font-bold text-gray-500 uppercase tracking-wider">Ordered Items</p>
+                    <p className="text-[11px] font-bold text-gray-500 uppercase tracking-wider">Ordered items</p>
                     {order.items?.map((item, idx) => {
                       const qty = getOrderItemQty(item);
-                      const name = item.name || item.title || 'Surplus Meal';
+                      const name = item.name || item.title || 'Surplus meal';
                       const itemPrice = getOrderItemPrice(item);
                       return (
                         <div key={idx} className="text-xs text-gray-800 flex items-center justify-between gap-2">
@@ -124,10 +124,10 @@ export function BusinessOrders({ navigateBusiness }) {
                   </div>
 
                   <div className="space-y-1.5 bg-slate-50/70 p-3 rounded-2xl border border-gray-100 text-xs text-gray-600">
-                    <p className="text-[11px] font-bold text-gray-500 uppercase tracking-wider">Customer & Delivery</p>
+                    <p className="text-[11px] font-bold text-gray-500 uppercase tracking-wider">Customer & delivery</p>
                     <p className="flex items-center gap-1.5 text-gray-700">
                       <IconMapPin size={14} className="text-emerald-600 shrink-0" />
-                      <span className="truncate">{order.deliveryAddress || (order.fulfillment === 'pickup' ? 'Store Pickup' : '12 Admiralty Way, Lekki Phase 1')}</span>
+                      <span className="truncate">{order.deliveryAddress || (order.fulfillment === 'pickup' ? 'Store pickup' : '12 Example Street, Wuse 2')}</span>
                     </p>
                     <p className="flex items-center gap-1.5 text-gray-700">
                       <IconPhone size={14} className="text-emerald-600 shrink-0" />
@@ -142,7 +142,7 @@ export function BusinessOrders({ navigateBusiness }) {
                     onClick={() => navigateBusiness('order-detail', { orderId: order.id })}
                     className="w-full sm:w-auto px-4 py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold rounded-xl text-xs transition text-center cursor-pointer active:scale-98"
                   >
-                    Open Full Manager
+                    Open full manager
                   </button>
 
                   {cfg.next ? (
@@ -155,7 +155,7 @@ export function BusinessOrders({ navigateBusiness }) {
                     </button>
                   ) : (
                     <span className="inline-flex items-center justify-center gap-1 text-xs font-bold text-emerald-700 bg-emerald-50 px-3 py-2 rounded-xl border border-emerald-200/50">
-                      <IconShieldCheck size={14} /> Order Fulfilled
+                      <IconShieldCheck size={14} /> Order completed
                     </span>
                   )}
                 </div>

@@ -58,7 +58,7 @@ export function BusinessLogin({ onLogin }) {
           >
             Login to business portal
           </button>
-          <p className="text-xs text-[#8aa08a] text-center font-medium">
+          <p className="text-xs text-[#5a6b5a] text-center font-medium">
             Demo: any email / password works • same listings & orders as customers
           </p>
           <button
@@ -66,7 +66,7 @@ export function BusinessLogin({ onLogin }) {
             onClick={handleBackToCustomer}
             className="w-full bg-white border border-[#eef3ec] hover:bg-[#f1f6ef] py-3 rounded-xl font-bold text-sm text-[#0f2815] transition cursor-pointer"
           >
-            ← Back to customer view
+            Back to customer view
           </button>
         </form>
       </div>

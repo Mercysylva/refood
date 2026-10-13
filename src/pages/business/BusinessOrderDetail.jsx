@@ -17,7 +17,7 @@ export function BusinessOrderDetail({ orderId, id, navigateBusiness }) {
           onClick={() => navigateBusiness('orders')}
           className="mt-3 text-emerald-600 font-semibold underline cursor-pointer"
         >
-          Back to Orders
+          Back to orders
         </button>
       </div>
     );
@@ -50,10 +50,10 @@ export function BusinessOrderDetail({ orderId, id, navigateBusiness }) {
 
       {/* Order Item Details */}
       <div className="bg-white rounded-3xl p-6 border border-gray-100 shadow-sm space-y-4">
-        <h2 className="text-sm font-black text-gray-900 uppercase tracking-wider">Kitchen Order Slip</h2>
+        <h2 className="text-sm font-black text-gray-900 uppercase tracking-wider">Kitchen order slip</h2>
         <div className="divide-y divide-gray-100">
           {order.items?.map((item, idx) => {
-            const itemTitle = item.name || item.title || 'Surplus Meal';
+            const itemTitle = item.name || item.title || 'Surplus meal';
             const itemQty = getOrderItemQty(item);
             const itemPrice = getOrderItemPrice(item);
 
@@ -83,19 +83,19 @@ export function BusinessOrderDetail({ orderId, id, navigateBusiness }) {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="bg-white rounded-3xl p-5 border border-gray-100 shadow-sm space-y-3">
           <h3 className="text-xs font-black text-gray-900 uppercase tracking-wider flex items-center gap-2">
-            <IconMapPin size={16} className="text-emerald-600" /> Delivery Destination
+            <IconMapPin size={16} className="text-emerald-600" /> Delivery destination
           </h3>
-          <p className="text-xs text-gray-700 font-medium">{order.deliveryAddress || '12 Admiralty Way, Lekki Phase 1, Lagos'}</p>
+          <p className="text-xs text-gray-700 font-medium">{order.deliveryAddress || '12 Example Street, Wuse 2, Abuja'}</p>
           <p className="text-xs text-gray-500">Phone: {order.customerPhone || '+234 802 345 6789'}</p>
         </div>
 
         <div className="bg-white rounded-3xl p-5 border border-gray-100 shadow-sm space-y-3">
           <h3 className="text-xs font-black text-gray-900 uppercase tracking-wider flex items-center gap-2">
-            <IconShieldCheck size={16} className="text-emerald-600" /> Dispatch Verification
+            <IconShieldCheck size={16} className="text-emerald-600" /> Dispatch verification
           </h3>
           <div className="flex items-center justify-between">
-            <span className="text-xs text-gray-600">Assigned Driver:</span>
-            <span className="text-xs font-bold text-gray-900">Musa Ibrahim (Bike)</span>
+            <span className="text-xs text-gray-600">Assigned rider:</span>
+            <span className="text-xs font-bold text-gray-900">Musa Ibrahim (bike)</span>
           </div>
           <div className="flex items-center justify-between">
             <span className="text-xs text-gray-600">Verification PIN:</span>

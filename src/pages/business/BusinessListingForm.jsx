@@ -15,7 +15,7 @@ export function BusinessListingForm({ editId, navigateBusiness }) {
   const [originalPrice, setOriginalPrice] = useState(existingFood?.originalPrice || 4500);
   const [discountPrice, setDiscountPrice] = useState(existingFood?.surplusPrice ?? existingFood?.discountPrice ?? 2200);
   const [quantityLeft, setQuantityLeft] = useState(existingFood?.quantityLeft !== undefined ? existingFood.quantityLeft : (existingFood?.quantity !== undefined ? existingFood.quantity : 5));
-  const [pickupTime, setPickupTime] = useState(existingFood?.pickupTime || existingFood?.pickupWindow || '5:00 PM - 8:30 PM');
+  const [pickupTime, setPickupTime] = useState(existingFood?.pickupTime || existingFood?.pickupWindow || '5:00 PM to 8:30 PM');
   const [image, setImage] = useState(
     existingFood?.image ||
       'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80'
@@ -36,9 +36,9 @@ export function BusinessListingForm({ editId, navigateBusiness }) {
       pickupTime,
       pickupWindow: pickupTime,
       image,
-      businessName: 'Mega Kitchen Lekki',
-      location: 'Admiralty Way, Lekki Phase 1',
-      businessLocation: 'Admiralty Way, Lekki Phase 1',
+      businessName: 'Mama B Kitchen',
+      location: 'Aminu Kano Crescent, Wuse 2',
+      businessLocation: 'Aminu Kano Crescent, Wuse 2',
       rating: 4.8,
       status: 'active',
     };
@@ -72,23 +72,23 @@ export function BusinessListingForm({ editId, navigateBusiness }) {
       {/* Main Title block */}
       <div>
         <h1 className="text-2xl font-black text-gray-900">
-          {existingFood ? 'Edit Surplus Meal' : 'Publish Surplus Meal'}
+          {existingFood ? 'Edit surplus meal' : 'Publish surplus meal'}
         </h1>
         <p className="text-xs text-gray-500 mt-0.5">
-          Make surplus fresh food available to Lagos customers at reduced prices
+          Make surplus fresh food available to Abuja customers at reduced prices
         </p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-5 bg-white p-6 rounded-3xl border border-gray-100 shadow-sm">
         {/* Image Upload/URL Component */}
         <div>
-          <label className="block text-xs font-bold text-gray-700 mb-2">Item Photo</label>
+          <label className="block text-xs font-bold text-gray-700 mb-2">Item photo</label>
           <ListingImageField value={image} onChange={setImage} />
         </div>
 
         {/* Title */}
         <div>
-          <label className="block text-xs font-bold text-gray-700 mb-1.5">Meal Title</label>
+          <label className="block text-xs font-bold text-gray-700 mb-1.5">Meal title</label>
           <input
             type="text"
             required
@@ -108,17 +108,17 @@ export function BusinessListingForm({ editId, navigateBusiness }) {
               onChange={(e) => setCategory(e.target.value)}
               className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 font-medium bg-white"
             >
-              <option value="Rice & Mains">Rice & Mains</option>
-              <option value="Bakery & Pastries">Bakery & Pastries</option>
-              <option value="Grills & Suya">Grills & Suya</option>
-              <option value="Soups & Swallows">Soups & Swallows</option>
-              <option value="Salads & Healthy">Salads & Healthy</option>
-              <option value="Mystery Bags">Mystery Bags (Surprise Pack)</option>
+              <option value="Rice & Mains">Rice & mains</option>
+              <option value="Bakery & Pastries">Bakery & pastries</option>
+              <option value="Grills & Suya">Grills & suya</option>
+              <option value="Soups & Swallows">Soups & swallows</option>
+              <option value="Salads & Healthy">Salads & healthy</option>
+              <option value="Mystery Bags">Mystery bags (surprise pack)</option>
             </select>
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-gray-700 mb-1.5">Quantity Available</label>
+            <label className="block text-xs font-bold text-gray-700 mb-1.5">Quantity available</label>
             <input
               type="number"
               min="1"
@@ -158,18 +158,18 @@ export function BusinessListingForm({ editId, navigateBusiness }) {
           </div>
 
           <div className="flex flex-col justify-center text-center">
-            <span className="text-xs text-gray-500 font-medium">Customer Savings</span>
+            <span className="text-xs text-gray-500 font-medium">Customer savings</span>
             <span className="text-lg font-black text-emerald-700">{discountPercent}% OFF</span>
           </div>
         </div>
 
         {/* Pickup / Prep Window */}
         <div>
-          <label className="block text-xs font-bold text-gray-700 mb-1.5">Pickup / Delivery Window</label>
+          <label className="block text-xs font-bold text-gray-700 mb-1.5">Pickup or delivery window</label>
           <input
             type="text"
             required
-            placeholder="e.g. 5:30 PM - 8:30 PM"
+            placeholder="e.g. 5:30 PM to 8:30 PM"
             value={pickupTime}
             onChange={(e) => setPickupTime(e.target.value)}
             className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 font-medium"
@@ -178,7 +178,7 @@ export function BusinessListingForm({ editId, navigateBusiness }) {
 
         {/* Description */}
         <div>
-          <label className="block text-xs font-bold text-gray-700 mb-1.5">Description & Contents</label>
+          <label className="block text-xs font-bold text-gray-700 mb-1.5">Description & contents</label>
           <textarea
             rows={3}
             required
@@ -201,7 +201,7 @@ export function BusinessListingForm({ editId, navigateBusiness }) {
             type="submit"
             className="flex-1 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-2xl text-xs sm:text-sm shadow-md shadow-emerald-600/20 transition active:scale-98 cursor-pointer"
           >
-            {existingFood ? 'Save Changes' : 'Publish Listing'}
+            {existingFood ? 'Save changes' : 'Publish listing'}
           </button>
         </div>
       </form>

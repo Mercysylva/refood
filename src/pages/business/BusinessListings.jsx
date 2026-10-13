@@ -29,7 +29,7 @@ export function BusinessListings({ navigateBusiness }) {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-black text-gray-900">Surplus Food Inventory</h1>
+          <h1 className="text-2xl font-black text-gray-900">Surplus food inventory</h1>
           <p className="text-xs text-gray-500">
             Publish daily surplus portions, mystery bags, and rescue packs
           </p>
@@ -38,7 +38,7 @@ export function BusinessListings({ navigateBusiness }) {
           onClick={() => navigateBusiness('new-listing')}
           className="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-2xl text-xs font-bold shadow-md shadow-emerald-600/20 transition active:scale-95 cursor-pointer"
         >
-          <IconPlus size={16} /> Add Surplus Item
+          <IconPlus size={16} /> Add surplus item
         </button>
       </div>
 
@@ -75,11 +75,11 @@ export function BusinessListings({ navigateBusiness }) {
       {/* Food Listings Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {filteredFoods.map((food) => {
-          const itemTitle = food.name || food.title || 'Surplus Item';
+          const itemTitle = food.name || food.title || 'Surplus item';
           const originalPrice = getListingOriginalPrice(food) || 3500;
           const discountPrice = getListingPrice(food) || 1800;
           const quantityLeft = food.quantityLeft !== undefined ? food.quantityLeft : (food.quantity !== undefined ? food.quantity : 5);
-          const pickupWindow = food.pickupTime || food.pickupWindow || '5:00 PM - 8:00 PM';
+          const pickupWindow = food.pickupTime || food.pickupWindow || '5:00 PM to 8:00 PM';
           const discountPercent = originalPrice > 0 ? Math.round(((originalPrice - discountPrice) / originalPrice) * 100) : 0;
 
           return (

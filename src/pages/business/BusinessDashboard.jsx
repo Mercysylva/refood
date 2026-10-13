@@ -20,9 +20,9 @@ export function BusinessDashboard({ navigateBusiness }) {
   const totalMealsSaved = deliveredOrders.length * 2 + 18;
 
   const STATUS_CONFIG = {
-    placed: { label: 'New Placed', bg: 'bg-amber-100 text-amber-800 border-amber-200', next: 'preparing', actionText: 'Accept & Cook' },
-    preparing: { label: 'In Kitchen', bg: 'bg-blue-100 text-blue-800 border-blue-200', next: 'ready', actionText: 'Mark Ready' },
-    ready: { label: 'Out with Rider', bg: 'bg-purple-100 text-purple-800 border-purple-200', next: 'delivered', actionText: 'Mark Delivered' },
+    placed: { label: 'New order', bg: 'bg-amber-100 text-amber-800 border-amber-200', next: 'preparing', actionText: 'Accept & cook' },
+    preparing: { label: 'In kitchen', bg: 'bg-blue-100 text-blue-800 border-blue-200', next: 'ready', actionText: 'Mark ready' },
+    ready: { label: 'Out with rider', bg: 'bg-purple-100 text-purple-800 border-purple-200', next: 'delivered', actionText: 'Mark delivered' },
     delivered: { label: 'Completed', bg: 'bg-emerald-100 text-emerald-800 border-emerald-200', next: null, actionText: null },
   };
 
@@ -33,10 +33,10 @@ export function BusinessDashboard({ navigateBusiness }) {
         <div className="space-y-2 max-w-xl">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-full text-xs font-bold">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            Kitchen Live Operations
+            Kitchen live operations
           </div>
           <h1 className="text-2xl sm:text-3xl font-black tracking-tight flex items-center gap-2.5 flex-wrap">
-            Welcome back, Mega Kitchen Lekki
+            Welcome back, Mama B Kitchen
             <span className="inline-flex items-center gap-1 text-[11px] font-bold text-[#0f7a3b] bg-white px-2 py-0.5 rounded-md border border-[#c8e0c8]">
               Verified <IconBadgeCheck size={14} />
             </span>
@@ -51,7 +51,7 @@ export function BusinessDashboard({ navigateBusiness }) {
             onClick={() => navigateBusiness('new-listing')}
             className="inline-flex items-center gap-2 px-4 py-3 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold rounded-2xl text-xs sm:text-sm shadow-lg shadow-emerald-500/20 transition active:scale-95"
           >
-            <IconPlus size={18} /> Add Surplus Meal
+            <IconPlus size={18} /> Add surplus meal
           </button>
         </div>
       </div>
@@ -60,7 +60,7 @@ export function BusinessDashboard({ navigateBusiness }) {
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         <div className="bg-white rounded-2xl p-5 border border-gray-100 shadow-xs">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold text-gray-500">Total Revenue</span>
+            <span className="text-xs font-semibold text-gray-500">Total revenue</span>
             <div className="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
               <IconDollarSign size={18} />
             </div>
@@ -70,7 +70,7 @@ export function BusinessDashboard({ navigateBusiness }) {
 
         <div className="bg-white rounded-2xl p-5 border border-gray-100 shadow-xs">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold text-gray-500">Live Active Orders</span>
+            <span className="text-xs font-semibold text-gray-500">Live orders</span>
             <div className="w-9 h-9 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center">
               <IconClock size={18} />
             </div>
@@ -81,7 +81,7 @@ export function BusinessDashboard({ navigateBusiness }) {
 
         <div className="bg-white rounded-2xl p-5 border border-gray-100 shadow-xs">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold text-gray-500">Surplus Rescued</span>
+            <span className="text-xs font-semibold text-gray-500">Surplus rescued</span>
             <div className="w-9 h-9 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center">
               <IconChefHat size={18} />
             </div>
@@ -91,7 +91,7 @@ export function BusinessDashboard({ navigateBusiness }) {
 
         <div className="bg-white rounded-2xl p-5 border border-gray-100 shadow-xs">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold text-gray-500">Active Listings</span>
+            <span className="text-xs font-semibold text-gray-500">Active listings</span>
             <div className="w-9 h-9 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center">
               <IconShoppingBag size={18} />
             </div>
@@ -107,7 +107,7 @@ export function BusinessDashboard({ navigateBusiness }) {
           <div>
             <div className="flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-              <h2 className="text-base sm:text-lg font-black text-gray-900">Live Kitchen Fulfillment Station</h2>
+              <h2 className="text-base sm:text-lg font-black text-gray-900">Live kitchen station</h2>
             </div>
             <p className="text-xs text-gray-500 mt-0.5 leading-relaxed">
               Real-time dispatch controls. Advance kitchen preparation and rider handover stages.
@@ -117,7 +117,7 @@ export function BusinessDashboard({ navigateBusiness }) {
             onClick={() => navigateBusiness('orders')}
             className="self-start sm:self-auto inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200/60 rounded-xl text-xs font-bold transition active:scale-95 cursor-pointer"
           >
-            <span>All Orders</span>
+            <span>All orders</span>
             <IconArrowRight size={13} />
           </button>
         </div>
@@ -132,10 +132,10 @@ export function BusinessDashboard({ navigateBusiness }) {
               const cfg = STATUS_CONFIG[order.status] || STATUS_CONFIG.placed;
               const itemsList = order.items?.map((i) => {
                 const qty = i.quantity || i.qty || 1;
-                const name = i.name || i.title || 'Surplus Meal';
+                const name = i.name || i.title || 'Surplus meal';
                 return `${qty}x ${name}`;
               }).join(', ') || '1x Surplus Meal';
-              const deliveryAddress = order.deliveryAddress || (order.fulfillment === 'pickup' ? 'Store Pickup' : 'Lekki Phase 1, Lagos');
+              const deliveryAddress = order.deliveryAddress || (order.fulfillment === 'pickup' ? 'Store pickup' : 'Wuse 2, Abuja');
               const orderDate = order.createdAt || order.date;
               const orderTime = orderDate ? new Date(orderDate).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : 'Just now';
 
@@ -176,7 +176,7 @@ export function BusinessDashboard({ navigateBusiness }) {
                       onClick={() => navigateBusiness('order-detail', { orderId: order.id })}
                       className="w-full sm:w-auto px-4 py-2.5 bg-white hover:bg-gray-50 text-gray-700 border border-gray-200 rounded-xl text-xs font-bold transition text-center active:scale-98 cursor-pointer shadow-2xs"
                     >
-                      Manage Stages
+                      Manage stages
                     </button>
 
                     {cfg.next && (
@@ -199,18 +199,18 @@ export function BusinessDashboard({ navigateBusiness }) {
       {/* Active Listings Quick Section */}
       <div className="bg-white rounded-3xl p-6 border border-gray-100 shadow-sm space-y-4">
         <div className="flex items-center justify-between">
-          <h2 className="text-lg font-bold text-gray-900">Active Surplus Listings</h2>
+          <h2 className="text-lg font-bold text-gray-900">Active surplus listings</h2>
           <button
             onClick={() => navigateBusiness('listings')}
             className="text-xs font-bold text-emerald-600 hover:text-emerald-700 flex items-center gap-1 transition"
           >
-            Manage Catalog <IconArrowRight size={14} />
+            Manage listings <IconArrowRight size={14} />
           </button>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {foods.slice(0, 3).map((food) => {
-            const itemTitle = food.name || food.title || 'Surplus Item';
+            const itemTitle = food.name || food.title || 'Surplus item';
             const price = getListingPrice(food) || 1800;
             const stock = food.quantityLeft !== undefined ? food.quantityLeft : (food.quantity !== undefined ? food.quantity : 4);
 
