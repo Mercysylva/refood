@@ -18,9 +18,9 @@ import {
 import { MessageDriverModal } from '../../components/customer/MessageDriverModal';
 
 const STATUS_STEPS = [
-  { key: 'placed', label: 'Order Placed', time: '12:30 PM', icon: IconClock },
-  { key: 'preparing', label: 'In Kitchen', time: '12:35 PM', icon: IconChefHat },
-  { key: 'ready', label: 'On the Way', time: '12:48 PM', icon: IconTruck },
+  { key: 'placed', label: 'Order placed', time: '12:30 PM', icon: IconClock },
+  { key: 'preparing', label: 'In kitchen', time: '12:35 PM', icon: IconChefHat },
+  { key: 'ready', label: 'On the way', time: '12:48 PM', icon: IconTruck },
   { key: 'delivered', label: 'Delivered', time: '1:05 PM', icon: IconPackageCheck },
 ];
 
@@ -37,7 +37,7 @@ export function TrackOrder({ orderId, id }) {
       <div className="p-8 text-center text-gray-500">
         <p>No active order found to track.</p>
         <button onClick={() => navigate('orders')} className="mt-3 text-emerald-600 font-semibold underline cursor-pointer">
-          View All Orders
+          View all orders
         </button>
       </div>
     );
@@ -66,14 +66,14 @@ export function TrackOrder({ orderId, id }) {
       {/* Main Title & Action block */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Live Delivery Tracking</h1>
+          <h1 className="text-2xl font-bold text-gray-900">Live delivery tracking</h1>
           <p className="text-xs text-gray-500 mt-0.5">Order #{order.id} • Arriving in ~18 mins</p>
         </div>
         <button
           onClick={() => navigate('orderDetail', { id: order.id, orderId: order.id })}
           className="text-xs font-semibold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 px-3.5 py-2 rounded-xl transition cursor-pointer"
         >
-          View Receipt
+          View receipt
         </button>
       </div>
 
@@ -134,7 +134,7 @@ export function TrackOrder({ orderId, id }) {
             <IconMapPin size={20} />
           </div>
           <span className="mt-1 text-[11px] font-bold bg-black/75 text-white px-2 py-0.5 rounded-md backdrop-blur-sm">
-            Your Delivery Location
+            Your delivery location
           </span>
         </div>
 
@@ -145,8 +145,8 @@ export function TrackOrder({ orderId, id }) {
               18<span className="text-[10px] font-normal">m</span>
             </div>
             <div>
-              <p className="text-xs font-bold text-gray-900">Estimated Delivery Time</p>
-              <p className="text-[11px] text-gray-500">Traffic is moderate on Admiralty Way</p>
+              <p className="text-xs font-bold text-gray-900">Estimated delivery time</p>
+              <p className="text-[11px] text-gray-500">Traffic is moderate on Aminu Kano Crescent</p>
             </div>
           </div>
           <div className="flex items-center gap-2">
@@ -188,7 +188,7 @@ export function TrackOrder({ orderId, id }) {
             className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-2xl text-xs font-bold shadow-md shadow-emerald-600/20 transition active:scale-95 cursor-pointer"
           >
             <IconMessage size={16} />
-            <span>Message Rider</span>
+            <span>Message rider</span>
           </button>
           <button
             onClick={() => setDriverCallModal(true)}
@@ -207,7 +207,7 @@ export function TrackOrder({ orderId, id }) {
             <IconShieldCheck size={22} />
           </div>
           <div>
-            <p className="text-xs font-bold text-gray-900">Handover Verification PIN</p>
+            <p className="text-xs font-bold text-gray-900">Handover PIN</p>
             <p className="text-[11px] text-gray-600">Share this code with Musa upon meal arrival.</p>
           </div>
         </div>
@@ -219,7 +219,7 @@ export function TrackOrder({ orderId, id }) {
       {/* Live Order Timeline (Customer Read-Only) */}
       <div className="bg-white rounded-3xl p-6 sm:p-7 border border-gray-100 shadow-sm space-y-6">
         <div className="flex items-center justify-between border-b border-gray-100 pb-4">
-          <h2 className="text-base font-bold text-gray-900">Delivery Status Timeline</h2>
+          <h2 className="text-base font-bold text-gray-900">Delivery timeline</h2>
           <span className="text-xs text-gray-500 flex items-center gap-1">
             <IconEye size={13} className="text-gray-400" /> Managed in real-time by kitchen
           </span>
@@ -264,7 +264,7 @@ export function TrackOrder({ orderId, id }) {
                       </p>
                       {isCurrent && !isDelivered && (
                         <span className="text-[10px] font-bold bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full animate-pulse">
-                          In Progress
+                          In progress
                         </span>
                       )}
                     </div>
@@ -305,7 +305,7 @@ export function TrackOrder({ orderId, id }) {
               onClick={() => setDriverCallModal(false)}
               className="w-full py-3 bg-red-600 hover:bg-red-700 text-white font-bold rounded-2xl transition cursor-pointer"
             >
-              End Call
+              End call
             </button>
           </div>
         </div>

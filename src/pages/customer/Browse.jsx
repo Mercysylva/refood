@@ -35,14 +35,14 @@ export function Browse() {
   return (
     <div className="space-y-5">
       <div>
-        <h1 className="text-[24px] font-bold tracking-tight text-[#0f2815]">Browse Surplus</h1>
+        <h1 className="text-[24px] font-bold tracking-tight text-[#0f2815]">Browse surplus</h1>
         <p className="text-[13.5px] text-[#3a4a3a] mt-1 font-medium">Discover affordable surplus near you</p>
       </div>
 
       <div className="bg-white rounded-2xl p-4 shadow-[0_2px_16px_rgba(0,0,0,0.05)] space-y-3 border border-[#eef3ec]">
         <div className="flex flex-col lg:flex-row gap-3">
           <div className="flex-1 relative">
-            <span className="absolute left-3.5 top-3.5 text-[#8aa08a]"><IconSearch size={ICON_SIZE} /></span>
+            <span className="absolute left-3.5 top-3.5 text-[#5a6b5a]"><IconSearch size={ICON_SIZE} /></span>
             <input
               value={q}
               onChange={e => setQ(e.target.value)}

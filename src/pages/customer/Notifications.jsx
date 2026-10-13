@@ -35,7 +35,7 @@ export function Notifications() {
           title="No notifications yet"
           description="When restaurants drop surplus discounts or your order updates, you'll see alerts here."
           icon={IconBell}
-          actionLabel="Explore Meals"
+          actionLabel="Explore meals"
           onAction={() => navigate('browse')}
         />
       ) : (

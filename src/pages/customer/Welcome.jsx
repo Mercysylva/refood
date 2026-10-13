@@ -23,7 +23,7 @@ export function Welcome() {
           </h1>
 
           <p className="text-gray-600 text-sm leading-relaxed">
-            Rescue freshly prepared surplus meals from top Lagos restaurants, bakeries, and cafes at up to 70% off.
+            Rescue freshly prepared surplus meals from top Abuja restaurants, bakeries, and cafes at up to 70% off.
             Save money while saving the planet.
           </p>
 
@@ -64,7 +64,7 @@ export function Welcome() {
                 <IconShoppingBag size={24} />
               </div>
               <span className="text-xs font-bold text-emerald-700 bg-emerald-100/70 px-2.5 py-1 rounded-full">
-                Order Meals
+                Order meals
               </span>
             </div>
             <div className="mt-4">
@@ -76,7 +76,7 @@ export function Welcome() {
               </p>
             </div>
             <div className="mt-4 flex items-center gap-2 text-xs font-bold text-emerald-600">
-              <span>Start Exploring</span> →
+              <span>Start exploring</span> →
             </div>
           </div>
 
@@ -93,7 +93,7 @@ export function Welcome() {
                 <IconStore size={24} />
               </div>
               <span className="text-xs font-bold text-teal-800 bg-teal-100/70 px-2.5 py-1 rounded-full">
-                Vendor Portal
+                Vendor portal
               </span>
             </div>
             <div className="mt-4">
@@ -105,7 +105,7 @@ export function Welcome() {
               </p>
             </div>
             <div className="mt-4 flex items-center gap-2 text-xs font-bold text-teal-700">
-              <span>Open Business Portal</span> →
+              <span>Open business portal</span> →
             </div>
           </div>
         </div>

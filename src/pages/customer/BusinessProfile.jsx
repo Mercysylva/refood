@@ -48,7 +48,7 @@ export function BusinessProfile({ id }) {
               <div className="mt-3.5 flex flex-wrap gap-2">
                 <span className="text-[12px] font-semibold px-3 py-1 rounded-full bg-[#eef5ee] text-[#1a5a2e] border border-[#d4e6d4]">Pickup available</span>
                 <span className="text-[12px] font-semibold px-3 py-1 rounded-full bg-[#eef5ee] text-[#1a5a2e] border border-[#d4e6d4]">Delivery available</span>
-                <span className="text-[12px] font-bold px-3 py-1 rounded-full bg-[#0f2815] text-white">Open today • 9am – 8pm</span>
+                <span className="text-[12px] font-bold px-3 py-1 rounded-full bg-[#0f2815] text-white">Open today • 9am to 8pm</span>
               </div>
             </div>
             <div className="flex md:flex-col gap-2.5 shrink-0 md:pt-[54px] md:w-[148px]">
@@ -61,13 +61,13 @@ export function BusinessProfile({ id }) {
 
       <div>
         <div className="flex items-center justify-between">
-          <h3 className="font-bold text-[#0f2815]">Available surplus <span className="text-[#8aa08a] font-semibold text-sm">· {bizListings.length} items</span></h3>
+          <h3 className="font-bold text-[#0f2815]">Available surplus <span className="text-[#5a6b5a] font-semibold text-sm">· {bizListings.length} items</span></h3>
           <span className="text-xs text-[#5a6b5a] font-medium">Updated today</span>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-4">
           {bizListings.map(l => <FoodCard key={l.id} listing={l} />)}
         </div>
-        {bizListings.length === 0 && <Empty text="No listings yet — this business hasn’t posted surplus today." />}
+        {bizListings.length === 0 && <Empty text="No listings yet. This business hasn’t posted surplus today." />}
       </div>
     </div>
   );

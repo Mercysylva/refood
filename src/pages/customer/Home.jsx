@@ -23,7 +23,7 @@ export function Home() {
       {/* Mobile search — desktop uses the TopBar search pill */}
       <div className="md:hidden">
         <div className="relative min-w-0">
-          <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#8aa08a] z-10"><IconSearch size={ICON_SIZE} /></span>
+          <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#5a6b5a] z-10"><IconSearch size={ICON_SIZE} /></span>
           <input
             value={q}
             onChange={e => setQ(e.target.value)}
@@ -44,7 +44,7 @@ export function Home() {
                 <IconChevronRight size={ICON_SIZE} className="rotate-180" />
               </button>
               <div className="flex-1 relative">
-                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[#8aa08a]"><IconSearch size={ICON_SIZE} /></span>
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[#5a6b5a]"><IconSearch size={ICON_SIZE} /></span>
                 <input
                   autoFocus
                   value={q}
@@ -57,7 +57,7 @@ export function Home() {
             <div className="px-4 py-4">
               {q.length === 0 ? (
                 <div className="space-y-4">
-                  <p className="text-[12px] font-bold text-[#8aa08a] uppercase tracking-wide">Recent searches</p>
+                  <p className="text-[12px] font-bold text-[#5a6b5a] uppercase tracking-wide">Recent searches</p>
                   <div className="flex flex-wrap gap-2">
                     {["Jollof Rice", "Suya", "Yam Porridge", "Moi-Moi", "Afang"].map(s => (
                       <button key={s} onClick={() => setQ(s)} className="bg-white border border-[#eef3ec] rounded-full px-4 py-2 text-[13px] font-semibold text-[#3a4a3a] hover:bg-[#eef3ec] transition cursor-pointer">{s}</button>
@@ -66,7 +66,7 @@ export function Home() {
                 </div>
               ) : (
                 <div className="space-y-3">
-                  <p className="text-[12px] font-bold text-[#8aa08a]">{filtered.length} result{filtered.length !== 1 ? "s" : ""}</p>
+                  <p className="text-[12px] font-bold text-[#5a6b5a]">{filtered.length} result{filtered.length !== 1 ? "s" : ""}</p>
                   <div className="space-y-2.5">
                     {filtered.map(l => {
                       const b = businesses.find(x => x.id === l.businessId);
@@ -82,7 +82,7 @@ export function Home() {
                             <p className="text-[11px] text-[#5a6b5a] font-medium truncate">{b?.name}</p>
                             <p className="text-[13px] font-extrabold text-[#0f2815] mt-0.5">{formatNaira(getListingPrice(l))}</p>
                           </div>
-                          <IconChevronRight size={ICON_SIZE} className="text-[#8aa08a] shrink-0" />
+                          <IconChevronRight size={ICON_SIZE} className="text-[#5a6b5a] shrink-0" />
                         </button>
                       );
                     })}

@@ -15,7 +15,7 @@ export function OrderDetail({ orderId, id }) {
   if (!order) return <Empty text="Order not found" />;
 
   const b = businesses.find((x) => x.id === order.businessId) || {
-    name: order.businessName || 'Mega Kitchen Lekki',
+    name: order.businessName || 'Mama B Kitchen',
   };
 
   const orderDate = order.date || order.createdAt || new Date().toISOString();
@@ -48,14 +48,14 @@ export function OrderDetail({ orderId, id }) {
             {order.status.replaceAll('_', ' ')}
           </span>
           <span className="text-xs font-semibold text-[#5a6b5a]">
-            Estimated window: <strong className="text-[#0f2815]">{order.estimatedWindow || '12:30 PM - 1:00 PM'}</strong>
+            Estimated window: <strong className="text-[#0f2815]">{order.estimatedWindow || '12:30 PM to 1:00 PM'}</strong>
           </span>
         </div>
 
         {/* Item Rows */}
         <div className="mt-4 space-y-3 text-sm">
           {order.items?.map((it, idx) => {
-            const itemTitle = it.name || it.title || 'Surplus Meal';
+            const itemTitle = it.name || it.title || 'Surplus meal';
             const itemQty = getOrderItemQty(it);
             const itemPrice = getOrderItemPrice(it);
 

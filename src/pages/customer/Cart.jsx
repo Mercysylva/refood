@@ -15,7 +15,7 @@ export function Cart() {
   return (
     <div className="max-w-[720px] space-y-5">
       <div><BackButton label="Back" fallback="browse" /></div>
-      <h1 className="text-[24px] font-bold tracking-tight text-[#0f2815]">Your Cart</h1>
+      <h1 className="text-[24px] font-bold tracking-tight text-[#0f2815]">Your cart</h1>
       <div className="space-y-3">
         {items.map(i => (
           <div key={i.listingId} className="bg-white rounded-2xl p-4 flex gap-4 shadow-[0_2px_16px_rgba(0,0,0,0.05)] border border-[#eef3ec]">
@@ -29,7 +29,7 @@ export function Cart() {
                   <span className="text-sm w-8 text-center font-bold text-[#0f2815]">{i.qty}</span>
                   <button onClick={() => updateCartQty(i.listingId, i.qty + 1)} className="w-7 h-7 bg-white rounded-full grid place-items-center shadow-sm text-[#0f2815] font-bold cursor-pointer">+</button>
                 </div>
-                <button onClick={() => removeFromCart(i.listingId)} className="ml-auto text-xs font-bold text-[#8aa08a] hover:text-red-600 cursor-pointer">Remove</button>
+                <button onClick={() => removeFromCart(i.listingId)} className="ml-auto text-xs font-bold text-[#5a6b5a] hover:text-red-600 cursor-pointer">Remove</button>
               </div>
             </div>
             <div className="font-bold text-[14px] text-[#0f2815]">{formatNaira(getListingPrice(i.listing) * i.qty)}</div>

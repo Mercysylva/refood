@@ -57,7 +57,7 @@ export function Checkout() {
       const yy = 2000 + Number(m[2]); const mm = Number(m[1]);
       if (yy < 2026 || (yy === 2026 && mm < 9)) e.expiry = "Card expired";
     }
-    if (!/^\d{3,4}$/.test(card.cvc)) e.cvc = "3–4 digits";
+    if (!/^\d{3,4}$/.test(card.cvc)) e.cvc = "3 or 4 digits";
     setCardErr(e);
     return Object.keys(e).length === 0;
   };
@@ -99,7 +99,7 @@ export function Checkout() {
         <div><BackButton label="Back" fallback="cart" /></div>
         <h1 className="text-[24px] font-bold tracking-tight text-[#0f2815]">Checkout</h1>
         <div className="bg-white rounded-2xl p-5 shadow-[0_2px_16px_rgba(0,0,0,0.05)] border border-[#eef3ec]">
-          <p className="font-bold text-sm text-[#0f2815]">Fulfillment</p>
+          <p className="font-bold text-sm text-[#0f2815]">Delivery or pickup</p>
           <div className="mt-3 flex gap-2 p-1 bg-[#f1f6ef] rounded-xl">
             <button onClick={() => setFulfillment("delivery")} className={`flex-1 py-2.5 rounded-lg text-sm font-bold transition cursor-pointer ${fulfillment === "delivery" ? "bg-white shadow-sm text-[#0f2815]" : "text-[#5a6b5a]"}`}>Delivery</button>
             <button onClick={() => setFulfillment("pickup")} className={`flex-1 py-2.5 rounded-lg text-sm font-bold transition cursor-pointer ${fulfillment === "pickup" ? "bg-white shadow-sm text-[#0f2815]" : "text-[#5a6b5a]"}`}>Pickup</button>
@@ -134,7 +134,7 @@ export function Checkout() {
           {payment === "card" ? (
             <div className="mt-4 space-y-3">
               <div className="rounded-2xl p-4 text-white bg-gradient-to-br from-[#0f2815] via-[#14532d] to-[#0f7a3b] shadow-sm">
-                <div className="flex justify-between items-center"><span className="text-[11px] font-bold tracking-widest text-white/70">REFOOD PAY</span><span className="text-[12px] font-extrabold italic">{brand}</span></div>
+                <div className="flex justify-between items-center"><span className="text-[11px] font-bold tracking-widest text-white/70">ReFood Pay</span><span className="text-[12px] font-extrabold italic">{brand}</span></div>
                 <p className="mt-3 text-[17px] font-bold tracking-[0.12em]">{card.number || "•••• •••• •••• ••••"}</p>
                 <div className="mt-2 flex justify-between text-[11px] font-semibold text-white/80"><span>{card.holder.toUpperCase() || "YOUR NAME"}</span><span>{card.expiry || "MM/YY"}</span></div>
               </div>
@@ -148,7 +148,7 @@ export function Checkout() {
                   <span className="absolute right-3 top-1/2 -translate-y-1/2 text-[11px] font-extrabold text-[#0f7a3b] bg-white border border-[#eef3ec] px-2 py-1 rounded-md">{brand}</span>
                 </div>
                 {cardErr.number && <p className="text-xs text-red-600 mt-1 font-medium">{cardErr.number}</p>}
-                <p className="text-[11px] text-[#8aa08a] mt-1 font-medium">Demo: use 4242 4242 4242 4242 · any future expiry · any CVC</p>
+                <p className="text-[11px] text-[#5a6b5a] mt-1 font-medium">Demo: use 4242 4242 4242 4242 · any future expiry · any CVC</p>
               </div>
               <div className="grid grid-cols-2 gap-2.5">
                 <div>
@@ -176,10 +176,10 @@ export function Checkout() {
                   <button onClick={() => copy("acct", vAccount)} className="text-[12px] font-bold bg-white border border-[#eef3ec] px-3 py-1.5 rounded-lg shadow-sm cursor-pointer">{copied === "acct" ? "Copied!" : "Copy"}</button>
                 </div>
                 <p className="text-[12.5px] text-[#3a4a3a] font-medium mt-1">{bank} · ReFood Pay · Mercy S.</p>
-                <p className="text-[12px] font-bold mt-2 text-amber-700 bg-amber-50 border border-amber-200 rounded-xl px-3 py-2">Expires in {mmss} — use this account for this order only</p>
+                <p className="text-[12px] font-bold mt-2 text-amber-700 bg-amber-50 border border-amber-200 rounded-xl px-3 py-2">Expires in {mmss}. Use this account for this order only</p>
               </div>
-              <button onClick={() => setTransferSent(!transferSent)} className={`w-full py-3 rounded-xl text-sm font-bold border transition cursor-pointer ${transferSent ? "bg-[#eef6ec] text-[#0f7a3b] border-[#0f7a3b]/30" : "bg-white text-[#0f2815] border-[#d4e6d4]"}`}>{transferSent ? "✓ I have sent the money — tap to undo" : "I have sent the money"}</button>
-              <p className="text-[11px] text-[#8aa08a] font-medium text-center">We verify automatically — no receipt upload needed in this demo.</p>
+              <button onClick={() => setTransferSent(!transferSent)} className={`w-full py-3 rounded-xl text-sm font-bold border transition cursor-pointer ${transferSent ? "bg-[#eef6ec] text-[#0f7a3b] border-[#0f7a3b]/30" : "bg-white text-[#0f2815] border-[#d4e6d4]"}`}>{transferSent ? "✓ I have sent the money. Tap to undo" : "I have sent the money"}</button>
+              <p className="text-[11px] text-[#5a6b5a] font-medium text-center">We verify automatically. No receipt upload needed in this demo.</p>
             </div>
           )}
         </div>
@@ -207,7 +207,7 @@ export function Checkout() {
           <button onClick={handlePay} disabled={processing} className="mt-5 w-full bg-[#0f7a3b] hover:bg-[#126a33] text-white py-3.5 rounded-xl font-bold shadow-sm disabled:opacity-60 transition cursor-pointer">
             {processing ? (procStep || "Processing…") : payment === "card" ? `Pay ${formatNaira(total)} with card` : `Verify transfer • ${formatNaira(total)}`}
           </button>
-          <p className="text-[11px] text-[#8aa08a] mt-2 text-center font-medium inline-flex items-center justify-center gap-1 w-full"><IconShield size={ICON_SM} /> 256-bit encrypted · Demo — no real charge.</p>
+          <p className="text-[11px] text-[#5a6b5a] mt-2 text-center font-medium inline-flex items-center justify-center gap-1 w-full"><IconShield size={ICON_SM} /> 256-bit encrypted · Demo, no real charge.</p>
         </div>
       </div>
     </div>

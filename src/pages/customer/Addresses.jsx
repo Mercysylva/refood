@@ -6,16 +6,16 @@ export function Addresses() {
   const [addresses, setAddresses] = useState([
     {
       id: 'addr_1',
-      title: 'Home (Lekki Phase 1)',
-      address: '12 Admiralty Way, Lekki Phase 1, Lagos',
+      title: 'Home (Wuse 2)',
+      address: '12 Example Street, Wuse 2, Abuja',
       phone: '+234 802 345 6789',
       isDefault: true,
       tag: 'Home',
     },
     {
       id: 'addr_2',
-      title: 'Office (VI)',
-      address: 'Plot 1412 Adeola Hopewell St, Victoria Island, Lagos',
+      title: 'Office (CBD)',
+      address: 'Plot 45, Central Business District, Abuja',
       phone: '+234 802 345 6789',
       isDefault: false,
       tag: 'Work',
@@ -67,14 +67,14 @@ export function Addresses() {
       {/* Main Title & Action block */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Saved Addresses</h1>
-          <p className="text-xs text-gray-500 mt-0.5">Manage your delivery locations across Lagos</p>
+          <h1 className="text-2xl font-bold text-gray-900">Saved addresses</h1>
+          <p className="text-xs text-gray-500 mt-0.5">Manage your delivery locations across Abuja</p>
         </div>
         <button
           onClick={() => setShowAddModal(true)}
           className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-semibold shadow-sm transition cursor-pointer"
         >
-          <IconPlus size={16} /> Add Address
+          <IconPlus size={16} /> Add address
         </button>
       </div>
 
@@ -123,7 +123,7 @@ export function Addresses() {
                     onClick={() => handleSetDefault(addr.id)}
                     className="text-xs font-semibold text-emerald-700 hover:text-emerald-800 bg-white hover:bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-lg transition cursor-pointer"
                   >
-                    Set Default
+                    Set default
                   </button>
                 )}
                 {addresses.length > 1 && (
@@ -145,7 +145,7 @@ export function Addresses() {
       {showAddModal && (
         <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-center justify-center p-4">
           <div className="bg-white rounded-3xl p-6 max-w-md w-full shadow-2xl space-y-4 animate-scaleUp">
-            <h2 className="text-lg font-bold text-gray-900">Add Delivery Address</h2>
+            <h2 className="text-lg font-bold text-gray-900">Add delivery address</h2>
             <form onSubmit={handleAdd} className="space-y-3">
               <div>
                 <label className="block text-xs font-semibold text-gray-700 mb-1">Label / Title</label>
@@ -160,10 +160,10 @@ export function Addresses() {
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-gray-700 mb-1">Street Address</label>
+                <label className="block text-xs font-semibold text-gray-700 mb-1">Street address</label>
                 <textarea
                   rows={2}
-                  placeholder="e.g. 15 Adeola Odeku St, Victoria Island"
+                  placeholder="e.g. 15 Adetokunbo Ademola Crescent, Wuse 2"
                   value={newAddress}
                   onChange={(e) => setNewAddress(e.target.value)}
                   required
@@ -172,7 +172,7 @@ export function Addresses() {
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-gray-700 mb-1">Contact Phone</label>
+                <label className="block text-xs font-semibold text-gray-700 mb-1">Contact phone</label>
                 <input
                   type="tel"
                   placeholder="+234..."
@@ -194,7 +194,7 @@ export function Addresses() {
                   type="submit"
                   className="flex-1 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition shadow-sm cursor-pointer"
                 >
-                  Save Address
+                  Save address
                 </button>
               </div>
             </form>

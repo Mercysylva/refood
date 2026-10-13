@@ -17,15 +17,15 @@ export function Orders() {
   return (
     <div className="space-y-5">
       <div>
-        <h1 className="text-[24px] font-bold tracking-tight text-[#0f2815]">My Orders</h1>
+        <h1 className="text-[24px] font-bold tracking-tight text-[#0f2815]">My orders</h1>
         <p className="text-[13px] text-[#5a6b5a] font-medium">Track your orders, pickups and deliveries</p>
       </div>
 
       {/* Tabs */}
       <div className="flex gap-0 border-b border-[#eef3ec] overflow-x-auto no-scrollbar">
         {[{ k: "active", l: "Active", c: active.length }, { k: "completed", l: "Completed", c: completed.length }, { k: "cancelled", l: "Cancelled", c: cancelled.length }].map(t => (
-          <button key={t.k} onClick={() => setTab(t.k)} className={`relative px-4 py-3 text-[13px] font-bold whitespace-nowrap transition cursor-pointer ${tab === t.k ? "text-[#0f7a3b]" : "text-[#8aa08a] hover:text-[#5a6b5a]"}`}>
-            {t.l} <span className={`ml-1 text-[11px] px-1.5 py-0.5 rounded-full font-bold ${tab === t.k ? "bg-[#0f7a3b]/10 text-[#0f7a3b]" : "bg-[#f1f6ef] text-[#8aa08a]"}`}>{t.c}</span>
+          <button key={t.k} onClick={() => setTab(t.k)} className={`relative px-4 py-3 text-[13px] font-bold whitespace-nowrap transition cursor-pointer ${tab === t.k ? "text-[#0f7a3b]" : "text-[#5a6b5a] hover:text-[#5a6b5a]"}`}>
+            {t.l} <span className={`ml-1 text-[11px] px-1.5 py-0.5 rounded-full font-bold ${tab === t.k ? "bg-[#0f7a3b]/10 text-[#0f7a3b]" : "bg-[#f1f6ef] text-[#5a6b5a]"}`}>{t.c}</span>
             {tab === t.k && <span className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-[#0f7a3b] rounded-full"></span>}
           </button>
         ))}
@@ -37,7 +37,7 @@ export function Orders() {
           {tab === "active" && (
             <>
               <div>
-                <h3 className="text-[13px] font-bold tracking-wide text-[#0f2815] uppercase">Active Orders <span className="text-[#8aa08a] font-semibold normal-case">• {active.length} ongoing</span></h3>
+                <h3 className="text-[13px] font-bold tracking-wide text-[#0f2815] uppercase">Active orders <span className="text-[#5a6b5a] font-semibold normal-case">• {active.length} ongoing</span></h3>
                 <div className="mt-3 space-y-4">
                   {active.map(o => {
                     const b = businesses.find(x => x.id === o.businessId);
@@ -68,10 +68,10 @@ export function Orders() {
                               const cur = i === activeIdx;
                               return (
                                 <div key={s.k} className="flex items-center gap-1.5 flex-1">
-                                  <div className={`w-6 h-6 rounded-full grid place-items-center font-bold shrink-0 border-2 ${done ? "bg-[#157a3b] border-[#157a3b] text-white" : cur ? "bg-white border-[#157a3b] text-[#157a3b]" : "bg-white border-[#d4e6d4] text-[#8aa08a]"}`}>
+                                  <div className={`w-6 h-6 rounded-full grid place-items-center font-bold shrink-0 border-2 ${done ? "bg-[#157a3b] border-[#157a3b] text-white" : cur ? "bg-white border-[#157a3b] text-[#157a3b]" : "bg-white border-[#d4e6d4] text-[#5a6b5a]"}`}>
                                     {done ? <IconCheck size={12} /> : cur ? <span className="w-2 h-2 bg-[#157a3b] rounded-full"></span> : <span className="w-1.5 h-1.5 bg-[#c5d6c5] rounded-full"></span>}
                                   </div>
-                                  <span className={`text-[11px] font-bold hidden sm:inline whitespace-nowrap ${i <= activeIdx ? "text-[#0f2815]" : "text-[#8aa08a]"}`}>{s.l}</span>
+                                  <span className={`text-[11px] font-bold hidden sm:inline whitespace-nowrap ${i <= activeIdx ? "text-[#0f2815]" : "text-[#5a6b5a]"}`}>{s.l}</span>
                                   {i < steps.length - 1 && <div className={`flex-1 h-0.5 mx-1 ${i < activeIdx ? "bg-[#157a3b]" : "bg-[#e5ebe5]"}`}></div>}
                                 </div>
                               );
@@ -84,7 +84,7 @@ export function Orders() {
                         <div className="mx-3 sm:mx-4 mt-3 bg-[#f7f8f6] rounded-xl p-3 border border-[#d4e6d4] border-dashed flex flex-col sm:flex-row items-center sm:justify-between gap-3">
                           <div className="text-center sm:text-left">
                             <p className="text-[10px] font-bold tracking-widest text-[#5a6b5a] uppercase">{isPickup ? "Show this code at pickup" : "Show this code at delivery"}</p>
-                            <p className="text-[11px] text-[#8aa08a] font-medium">Share with rider/store to confirm</p>
+                            <p className="text-[11px] text-[#5a6b5a] font-medium">Share with rider/store to confirm</p>
                           </div>
                           <div className="flex gap-1 flex-wrap justify-center">
                             {code.split("").map((d, i) => (
@@ -107,7 +107,7 @@ export function Orders() {
               {completed.length > 0 && (
                 <div>
                   <div className="flex items-center justify-between">
-                    <h3 className="text-[13px] font-bold tracking-wide text-[#0f2815] uppercase">Completed Orders</h3>
+                    <h3 className="text-[13px] font-bold tracking-wide text-[#0f2815] uppercase">Completed orders</h3>
                     <button onClick={() => setTab("completed")} className="text-xs font-bold text-[#157a3b] cursor-pointer hover:underline">View all →</button>
                   </div>
                   <div className="mt-3 bg-white rounded-2xl shadow-[0_2px_12px_rgba(0,0,0,0.06)] overflow-hidden border border-[#eef3ec]">
@@ -137,7 +137,7 @@ export function Orders() {
 
           {tab === "completed" && (
             <div>
-              <h3 className="text-[13px] font-bold tracking-wide text-[#0f2815] uppercase">Completed Orders <span className="text-[#8aa08a] normal-case">• {completed.length}</span></h3>
+              <h3 className="text-[13px] font-bold tracking-wide text-[#0f2815] uppercase">Completed orders <span className="text-[#5a6b5a] normal-case">• {completed.length}</span></h3>
               <div className="mt-3 space-y-3">
                 {completed.map(o => {
                   const b = businesses.find(x => x.id === o.businessId);
@@ -159,7 +159,7 @@ export function Orders() {
 
           {tab === "cancelled" && (
             <div>
-              <h3 className="text-[13px] font-bold tracking-wide text-[#0f2815] uppercase">Cancelled Orders <span className="text-[#8aa08a] normal-case">• {cancelled.length}</span></h3>
+              <h3 className="text-[13px] font-bold tracking-wide text-[#0f2815] uppercase">Cancelled orders <span className="text-[#5a6b5a] normal-case">• {cancelled.length}</span></h3>
               <div className="mt-3 space-y-3">
                 {cancelled.map(o => {
                   const b = businesses.find(x => x.id === o.businessId);

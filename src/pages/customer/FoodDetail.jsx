@@ -85,7 +85,7 @@ export function FoodDetail({ id }) {
             <span className="text-3xl font-black text-[#0f2815]">
               {formatNaira(getListingPrice(listing))}
             </span>
-            <span className="text-base line-through text-[#8aa08a]">
+            <span className="text-base line-through text-[#5a6b5a]">
               {formatNaira(getListingOriginalPrice(listing))}
             </span>
             <span className="text-xs font-bold text-[#0f7a3b] bg-[#eef6ec] px-2 py-1 rounded">
@@ -101,15 +101,15 @@ export function FoodDetail({ id }) {
           {/* Order specifications */}
           <div className="mt-6 pt-5 border-t border-[#eef3ec] space-y-2.5 text-xs text-[#3a4a3a]">
             <div className="flex justify-between py-1 border-b border-[#f7f8f6]">
-              <span className="text-[#8aa08a]">Pickup Window</span>
+              <span className="text-[#5a6b5a]">Pickup window</span>
               <span className="font-semibold text-[#0f2815]">{listing.pickupWindow}</span>
             </div>
             <div className="flex justify-between py-1 border-b border-[#f7f8f6]">
-              <span className="text-[#8aa08a]">Location</span>
+              <span className="text-[#5a6b5a]">Location</span>
               <span className="font-semibold text-[#0f2815]">{listing.location}</span>
             </div>
             <div className="flex justify-between py-1 border-b border-[#f7f8f6]">
-              <span className="text-[#8aa08a]">Availability</span>
+              <span className="text-[#5a6b5a]">Availability</span>
               <span className="font-semibold text-[#0f7a3b]">{listing.quantity} remaining</span>
             </div>
           </div>
@@ -117,14 +117,14 @@ export function FoodDetail({ id }) {
           {/* Delivery/Pickup Option */}
           {listing.delivery && (
             <div className="mt-5 space-y-2">
-              <label className="text-xs font-semibold text-[#5a6b5a]">Order Option</label>
+              <label className="text-xs font-semibold text-[#5a6b5a]">Order option</label>
               <div className="grid grid-cols-2 gap-2">
                 <button
                   type="button"
                   onClick={() => setDeliveryType("pickup")}
                   className={`py-2 px-3 rounded-xl border text-xs font-semibold flex items-center justify-center gap-1.5 transition cursor-pointer ${deliveryType === "pickup" ? "border-[#0f7a3b] bg-[#eef6ec] text-[#0f7a3b]" : "border-[#e2ece2] text-[#5a6b5a] hover:bg-[#f7f8f6]"}`}
                 >
-                  <IconStore size={ICON_SIZE} /> Self Pickup (Free)
+                  <IconStore size={ICON_SIZE} /> Self pickup (free)
                 </button>
                 <button
                   type="button"
@@ -164,18 +164,18 @@ export function FoodDetail({ id }) {
                 onClick={() => { for (let i = 0; i < qty; i++) addToCart(id, 1); navigate("checkout"); }}
                 className="w-full bg-[#0f2815] hover:bg-black text-white py-2.5 rounded-xl font-bold text-sm transition cursor-pointer"
               >
-                Buy Now
+                Buy now
               </button>
 
               {inCart && (
                 <p className="text-xs text-center text-[#0f7a3b] font-medium pt-1">
-                  ✓ {inCart.qty} already in your cart • <button onClick={() => navigate("cart")} className="underline font-bold cursor-pointer">View Cart</button>
+                  ✓ {inCart.qty} already in your cart • <button onClick={() => navigate("cart")} className="underline font-bold cursor-pointer">View cart</button>
                 </p>
               )}
             </div>
           ) : (
             <div className="mt-6 p-3.5 bg-red-50 text-red-600 rounded-xl text-center font-bold text-xs border border-red-100">
-              Sold Out — Check back for the next batch
+              Sold out. Check back for the next batch
             </div>
           )}
 

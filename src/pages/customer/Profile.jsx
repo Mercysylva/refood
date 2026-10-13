@@ -153,19 +153,19 @@ export function Profile() {
               <input
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                placeholder="Full Name"
+                placeholder="Full name"
                 className="w-full bg-white rounded-xl px-3.5 py-2 text-sm font-bold text-[#0f2815] border border-[#eef3ec] focus:outline-none focus:ring-2 focus:ring-[#0f7a3b]/20"
               />
               <input
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Email Address"
+                placeholder="Email address"
                 className="w-full bg-white rounded-xl px-3.5 py-2 text-sm font-medium text-[#0f2815] border border-[#eef3ec] focus:outline-none focus:ring-2 focus:ring-[#0f7a3b]/20"
               />
               <input
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                placeholder="Phone Number"
+                placeholder="Phone number"
                 className="w-full bg-white rounded-xl px-3.5 py-2 text-sm font-medium text-[#0f2815] border border-[#eef3ec] focus:outline-none focus:ring-2 focus:ring-[#0f7a3b]/20"
               />
             </div>
@@ -231,14 +231,14 @@ export function Profile() {
         />
         <ProfileRow
           icon={<IconShoppingBag size={ICON_SIZE} />}
-          title="My Orders"
+          title="My orders"
           sub={`${orders.length} active and completed orders`}
           onClick={() => navigate('orders')}
         />
         <ProfileRow
           icon={<IconHeart size={ICON_SIZE} />}
-          title="Saved Meals & Places"
-          sub={`${favorites.length} saved favorites`}
+          title="Favourites"
+          sub={`${favorites.length} saved ${favorites.length === 1 ? "meal" : "meals"}`}
           onClick={() => navigate('favorites')}
         />
         <ProfileRow
@@ -285,7 +285,7 @@ export function Profile() {
       <ProfileSection title="Support">
         <ProfileRow
           icon={<IconHelp size={ICON_SIZE} />}
-          title="Help Center"
+          title="Help centre"
           sub="FAQs and helpful articles"
         />
         <ProfileRow
@@ -300,7 +300,7 @@ export function Profile() {
         <ProfileRow
           icon={<IconStore size={ICON_SIZE} />}
           title="Switch to business account"
-          sub="List surplus food and reach more people in Lagos"
+          sub="List surplus food and reach more people in Abuja"
           onClick={() => {
             switchRole('business');
             window.location.href = '/business';
