@@ -1,14 +1,16 @@
 import { useApp } from "../../context/AppContext";
 import { formatNaira, getListingPrice, getListingOriginalPrice } from "../../utils/formatters";
-import { IconHeart, IconMapPin, IconTrash2 } from "../common/Icons";
+import { IconHeart, IconMapPin, IconTrash2, IconPlus, IconMinus } from "../common/Icons";
 
 export function FoodCard({ listing }) {
-  const { toggleFavorite, favorites, navigate, addToCart, removeFromCart, cart } = useApp();
+  const { toggleFavorite, favorites, navigate, addToCart, updateCartQty, cart } = useApp();
   const salePrice = getListingPrice(listing);
   const wasPrice = getListingOriginalPrice(listing);
   const discount = wasPrice > 0 ? Math.round((1 - salePrice / wasPrice) * 100) : 0;
   const fav = favorites.includes(listing.id);
-  const inCart = cart.some(c => c.listingId === listing.id);
+  const cartItem = cart.find(c => c.listingId === listing.id);
+  const cartQty = cartItem ? cartItem.qty : 0;
+  const atMax = cartQty >= listing.quantity;
   const soldOut = listing.status === "sold_out" || listing.quantity <= 0;
 
   return (
@@ -55,27 +57,41 @@ export function FoodCard({ listing }) {
             <IconHeart filled={fav} size={18} />
           </button>
           {!soldOut ? (
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                if (inCart) {
-                  removeFromCart(listing.id);
-                } else {
-                  addToCart(listing.id, 1);
-                }
-              }}
-              title={inCart ? "Remove from cart" : "Add to cart"}
-              className={`flex-1 min-w-0 h-10 sm:h-11 px-2 rounded-full text-[10px] sm:text-[12.5px] font-extrabold tracking-wide truncate transition active:scale-[0.98] cursor-pointer flex items-center justify-center gap-1.5 ${inCart ? "bg-red-500 hover:bg-red-600 text-white" : "bg-[#0f2815] hover:bg-black text-white"}`}
-            >
-              {inCart ? (
-                <>
-                  <IconTrash2 size={13} />
-                  <span>REMOVE</span>
-                </>
-              ) : (
-                "ADD TO CART"
-              )}
-            </button>
+            cartQty > 0 ? (
+              <div
+                className="flex-1 min-w-0 h-10 sm:h-11 rounded-full bg-[#eef6ec] border border-[#c8e0c8] flex items-center justify-between px-1"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <button
+                  onClick={() => updateCartQty(listing.id, cartQty - 1)}
+                  aria-label={cartQty === 1 ? "Remove from cart" : "Remove one"}
+                  title={cartQty === 1 ? "Remove from cart" : "Remove one"}
+                  className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white text-[#0f7a3b] grid place-items-center shadow-sm active:scale-90 transition cursor-pointer"
+                >
+                  {cartQty === 1 ? <IconTrash2 size={15} /> : <IconMinus size={15} />}
+                </button>
+                <span className="text-[11px] sm:text-[12.5px] font-extrabold text-[#0f7a3b] whitespace-nowrap" aria-live="polite">
+                  {cartQty} in cart
+                </span>
+                <button
+                  onClick={() => addToCart(listing.id, 1)}
+                  disabled={atMax}
+                  aria-label="Add one more"
+                  title={atMax ? "No more available" : "Add one more"}
+                  className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#0f7a3b] text-white grid place-items-center active:scale-90 transition cursor-pointer disabled:bg-[#c8e0c8] disabled:cursor-not-allowed"
+                >
+                  <IconPlus size={15} />
+                </button>
+              </div>
+            ) : (
+              <button
+                onClick={(e) => { e.stopPropagation(); addToCart(listing.id, 1); }}
+                title="Add to cart"
+                className="flex-1 min-w-0 h-10 sm:h-11 px-2 rounded-full text-[10px] sm:text-[12.5px] font-extrabold tracking-wide truncate transition active:scale-[0.98] cursor-pointer flex items-center justify-center gap-1.5 bg-[#0f2815] hover:bg-black text-white"
+              >
+                ADD TO CART
+              </button>
+            )
           ) : (
             <div className="flex-1 min-w-0 h-10 sm:h-11 px-2 rounded-full text-[10px] sm:text-[12.5px] font-extrabold bg-[#f7f8f6] text-[#8aa08a] grid place-items-center truncate">
               UNAVAILABLE
