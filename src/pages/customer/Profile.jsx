@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useApp } from '../../context/AppContext';
+import { formatNaira, getOrderItemPrice, getOrderItemQty } from '../../utils/formatters';
 import {
   IconUser,
   IconMapPin,
@@ -11,6 +12,7 @@ import {
   IconChevronRight,
   IconStore,
   IconLeaf,
+  IconWallet,
   IconCamera,
   IconEdit,
   IconMail,
@@ -103,9 +105,15 @@ export function Profile() {
     setEditing(!editing);
   };
 
-  const deliveredCount = orders.filter((o) => o.status === 'delivered' || o.status === 'completed').length;
-  const totalSavedMeals = deliveredCount > 0 ? deliveredCount * 2 : 6;
-  const co2SavedKg = (totalSavedMeals * 1.8).toFixed(1);
+  // Impact stats come from real orders (cancelled orders don't count).
+  const placedOrders = orders.filter((o) => o.status !== 'cancelled');
+  const orderItems = placedOrders.flatMap((o) => o.items || []);
+  const totalSavedMeals = orderItems.reduce((sum, it) => sum + getOrderItemQty(it), 0);
+  const totalMoneySaved = orderItems.reduce((sum, it) => {
+    const paid = getOrderItemPrice(it);
+    const original = Number(it.originalPrice) || paid;
+    return sum + Math.max(0, original - paid) * getOrderItemQty(it);
+  }, 0);
 
   return (
     <div className="max-w-[720px] mx-auto space-y-4 pb-16 animate-fadeIn">
@@ -198,17 +206,17 @@ export function Profile() {
           </div>
           <div>
             <p className="text-2xl font-black text-[#0f2815] leading-none">{totalSavedMeals}</p>
-            <p className="text-xs font-bold text-[#5a6b5a] mt-1.5">Surplus Meals Rescued</p>
+            <p className="text-xs font-bold text-[#5a6b5a] mt-1.5">Surplus meals rescued</p>
           </div>
         </div>
 
         <div className="bg-white rounded-2xl p-4 sm:p-5 border border-[#eef3ec] shadow-[0_2px_12px_rgba(0,0,0,0.04)] flex items-center gap-3.5">
           <div className="w-12 h-12 rounded-2xl bg-[#eef6ec] text-[#0f7a3b] grid place-items-center font-extrabold shrink-0">
-            <IconLeaf size={22} />
+            <IconWallet size={22} />
           </div>
           <div>
-            <p className="text-2xl font-black text-[#0f2815] leading-none">{co2SavedKg} kg</p>
-            <p className="text-xs font-bold text-[#5a6b5a] mt-1.5">CO₂ Emissions Prevented</p>
+            <p className="text-2xl font-black text-[#0f2815] leading-none">{formatNaira(totalMoneySaved)}</p>
+            <p className="text-xs font-bold text-[#5a6b5a] mt-1.5">Saved on surplus meals</p>
           </div>
         </div>
       </div>
