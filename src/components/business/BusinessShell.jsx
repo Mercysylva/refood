@@ -47,7 +47,7 @@ export function BusinessShell({ path, activePage, navigate, navigateBusiness, ch
           <div className="flex items-center gap-2.5">
             <span className="w-9 h-9 bg-[#0f2815] rounded-xl grid place-items-center text-white"><IconLeaf size={ICON_SIZE} /></span>
             <span className="font-extrabold text-[22px] tracking-[-0.05em] text-[#0f2815]">ReFood</span>
-            <span className="text-[11px] bg-[#0f7a3b] text-white px-2 py-0.5 rounded-full font-bold">BUSINESS</span>
+            <span className="text-[11px] bg-[#0f7a3b] text-white px-2 py-0.5 rounded-full font-bold">Business</span>
           </div>
           <p className="text-[11px] mt-2 text-[#5a6b5a] font-medium">Mama B Kitchen • Business portal</p>
           <nav className="mt-6 space-y-1">

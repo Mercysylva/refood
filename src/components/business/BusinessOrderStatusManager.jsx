@@ -48,10 +48,10 @@ export function BusinessOrderStatusManager({ order }) {
       <div className="flex items-center justify-between flex-wrap gap-2">
         <div className="flex items-center gap-2">
           <span className="w-2.5 h-2.5 rounded-full bg-[#0f7a3b] animate-pulse"></span>
-          <p className="text-sm font-bold text-[#0f2815]">Set Tracking Status</p>
+          <p className="text-sm font-bold text-[#0f2815]">Set tracking status</p>
         </div>
         <span className="text-[11px] font-bold bg-[#0f2815] text-white px-2.5 py-1 rounded-full flex items-center gap-1">
-          <IconShield size={12} /> Business Owner Control
+          <IconShield size={12} /> Business owner control
         </span>
       </div>
       <p className="text-xs text-[#5a6b5a] mt-1 font-medium">
@@ -61,7 +61,7 @@ export function BusinessOrderStatusManager({ order }) {
       {/* Visual Stepper */}
       <div className="mt-4 bg-[#f7f8f6] p-4 rounded-2xl border border-[#e2ece2] space-y-3">
         <div className="flex items-center justify-between text-xs font-bold text-[#0f2815]">
-          <span>Current Active Status:</span>
+          <span>Current status:</span>
           <span className="capitalize text-[#0f7a3b] bg-white px-3 py-1 rounded-lg border border-[#c8e0c8] shadow-xs font-extrabold">
             {order.status.replaceAll("_", " ")}
           </span>
@@ -93,7 +93,7 @@ export function BusinessOrderStatusManager({ order }) {
                   {isCurrent && <span className="text-[9px] bg-white/20 text-white font-bold px-1.5 py-0.5 rounded">Active</span>}
                   {isPassed && <IconCheck size={12} className="text-[#0f7a3b]" />}
                 </div>
-                <span className={`text-[10px] leading-tight font-medium mt-1 truncate ${isCurrent ? "text-white/85" : "text-[#8aa08a]"}`}>
+                <span className={`text-[10px] leading-tight font-medium mt-1 truncate ${isCurrent ? "text-white/85" : "text-[#5a6b5a]"}`}>
                   {s.desc}
                 </span>
               </button>
@@ -104,7 +104,7 @@ export function BusinessOrderStatusManager({ order }) {
 
       {feedback && (
         <div className="mt-3 p-3 bg-[#eef6ec] border border-[#c8e0c8] text-[#0f7a3b] text-xs font-bold rounded-xl text-center flex items-center justify-center gap-1.5">
-          <IconCheck size={14} /> {feedback} — Synced with customer view!
+          <IconCheck size={14} /> {feedback}. Synced with customer view!
         </div>
       )}
 
@@ -127,7 +127,7 @@ export function BusinessOrderStatusManager({ order }) {
       {!next && (
         <div className="mt-4 bg-[#eef6ec] border border-[#c8e0c8] p-3.5 rounded-xl text-center flex flex-col items-center justify-center">
           <p className="text-sm font-bold text-[#0f7a3b] flex items-center gap-1.5">
-            <IconCheck size={16} /> Order Fulfilled & Completed
+            <IconCheck size={16} /> Order completed
           </p>
           <p className="text-xs text-[#5a6b5a] mt-0.5">All delivery/pickup milestones have been completed.</p>
         </div>
