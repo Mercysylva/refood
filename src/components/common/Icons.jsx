@@ -5,7 +5,7 @@ import {
   Upload, Pencil, Mail, Phone, Camera, LogOut, Globe, CircleHelp, Headset, Sprout,
   BadgeCheck, ArrowRight, ArrowLeft, Send, MessageSquare, PhoneCall, PhoneOff, X,
   ChefHat, PackageCheck, Eye, Navigation, DollarSign, TrendingUp, Trash2, Plus, Minus,
-  ShoppingBag, Briefcase, RefreshCw, AlertCircle
+  ShoppingBag, Briefcase, RefreshCw, AlertCircle, Wallet
 } from "lucide-react";
 
 export const ICON_SIZE = 20;
@@ -36,6 +36,7 @@ export const IconShare = ({ size = ICON_SIZE, className = "" }) => (<Share2 size
 export const IconSparkles = ({ size = ICON_SIZE, className = "" }) => (<Sparkles size={size} className={className} />);
 export const IconInfo = ({ size = ICON_SIZE, className = "" }) => (<Info size={size} className={className} />);
 export const IconCart = ({ size = ICON_SIZE, className = "" }) => (<ShoppingCart size={size} className={className} />);
+export const IconWallet = ({ size = ICON_SIZE, className = "" }) => (<Wallet size={size} className={className} />);
 export const IconCard = ({ size = ICON_SIZE, className = "" }) => (<CreditCard size={size} className={className} />);
 export const IconCreditCard = ({ size = ICON_SIZE, className = "" }) => (<CreditCard size={size} className={className} />);
 export const IconBank = ({ size = ICON_SIZE, className = "" }) => (<Landmark size={size} className={className} />);
