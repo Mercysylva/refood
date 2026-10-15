@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { Avatar } from "../common/Avatar";
 import { useApp } from "../../context/AppContext";
 import { IconSearch, IconBell, IconCart, IconChevronDown, ICON_SIZE, ICON_SM } from "../common/Icons";
 
@@ -18,7 +19,6 @@ export function TopBar() {
     return () => document.removeEventListener("mousedown", close);
   }, []);
 
-  const dicebear = (seed) => `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(seed || "Mercy S.")}&backgroundColor=b6e3f4,c0aede,d1d4f9,ffd5dc`;
   const iconBtn = "relative w-10 h-10 grid place-items-center rounded-full bg-white border border-[#eef3ec] shadow-sm hover:bg-[#eef3ec] transition text-[#0f2815] cursor-pointer";
 
   return (
@@ -101,11 +101,7 @@ export function TopBar() {
 
         {/* Profile */}
         <button onClick={() => navigate("profile")} className="flex items-center gap-2 hover:opacity-80 transition ml-1 cursor-pointer">
-          <img
-            src={currentUser?.avatar && !currentUser.avatar.includes("unsplash.com") ? currentUser.avatar : dicebear(currentUser?.name || "Mercy S.")}
-            alt="avatar"
-            className="w-10 h-10 rounded-full bg-white border border-[#eef3ec] shadow-sm object-cover"
-          />
+          <Avatar src={currentUser?.avatar} name={currentUser?.name || "Mercy S."} className="w-10 h-10 shadow-sm" />
           <span className="hidden lg:inline text-[14px] font-bold text-[#0f2815]">{currentUser?.name || "Mercy S."}</span>
           <span className="hidden lg:inline text-[#0f2815]"><IconChevronDown size={ICON_SM} /></span>
         </button>

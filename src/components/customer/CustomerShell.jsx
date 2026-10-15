@@ -33,7 +33,6 @@ export function CustomerShell({ children }) {
         </div>
         <div className="p-5 pt-2">
           <button onClick={() => navigateTo("/business")} className="mt-2.5 w-full bg-[#0f2815] text-white py-2.5 rounded-xl text-xs font-bold hover:bg-[#163a1f] transition cursor-pointer">Business portal →</button>
-          <p className="text-[10px] text-[#5a6b5a] text-center mt-1 font-medium">Are you a business? Manage at /business</p>
         </div>
       </aside>
 

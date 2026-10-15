@@ -1,6 +1,14 @@
 import { useApp } from "../../context/AppContext";
 import { formatNaira, getListingPrice, getListingOriginalPrice } from "../../utils/formatters";
-import { IconHeart, IconMapPin, IconTrash2, IconPlus, IconMinus } from "../common/Icons";
+import { IconHeart, IconMapPin, IconTrash2, IconPlus, IconMinus, IconClock } from "../common/Icons";
+
+// "Today, 5:00 PM to 7:00 PM" becomes "Today, 5 to 7 PM" so it fits on a small card.
+function shortPickup(w = "") {
+  const t = w.replace(/:00/g, "");
+  const m = t.match(/^(.*?)(\d[\d:]*) ?(AM|PM) to (\d[\d:]*) ?(AM|PM)$/i);
+  if (m && m[3].toUpperCase() === m[5].toUpperCase()) return `${m[1]}${m[2]} to ${m[4]} ${m[5]}`;
+  return t;
+}
 
 export function FoodCard({ listing }) {
   const { toggleFavorite, favorites, navigate, addToCart, updateCartQty, cart } = useApp();
@@ -24,7 +32,12 @@ export function FoodCard({ listing }) {
         />
         {discount >= 10 && (
           <span className="absolute top-2 left-2 bg-[#0f7a3b] text-white text-[11px] font-extrabold px-2.5 py-1 rounded-full shadow">
-            -{discount}%
+            {discount}% off
+          </span>
+        )}
+        {!soldOut && listing.quantity > 0 && listing.quantity <= 3 && (
+          <span className="absolute top-2 right-2 bg-[#ffde59] text-[#0f2815] text-[11px] font-extrabold px-2.5 py-1 rounded-full shadow">
+            Only {listing.quantity} left
           </span>
         )}
         {soldOut && (
@@ -47,6 +60,11 @@ export function FoodCard({ listing }) {
         >
           {listing.name}
         </p>
+        {listing.pickupWindow && (
+          <p className="mt-1 text-[10.5px] font-semibold text-[#0f7a3b] truncate flex items-center gap-1">
+            <IconClock size={12} className="shrink-0" />Pickup {shortPickup(listing.pickupWindow).replace(/^Today,/, "today,")}
+          </p>
+        )}
         <div className="mt-auto pt-2.5 flex gap-1.5 sm:gap-2">
           <button
             onClick={(e) => { e.stopPropagation(); toggleFavorite(listing.id); }}
