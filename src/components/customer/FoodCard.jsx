@@ -31,12 +31,12 @@ export function FoodCard({ listing }) {
           onClick={() => navigate("foodDetail", { id: listing.id })}
         />
         {discount >= 10 && (
-          <span className="absolute top-2 left-2 bg-[#0f7a3b] text-white text-[11px] font-extrabold px-2.5 py-1 rounded-full shadow">
+          <span className="absolute top-1.5 left-1.5 sm:top-2 sm:left-2 bg-[#0f7a3b] text-white text-[10px] sm:text-[11px] font-extrabold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full shadow">
             {discount}% off
           </span>
         )}
         {!soldOut && listing.quantity > 0 && listing.quantity <= 3 && (
-          <span className="absolute top-2 right-2 bg-[#ffde59] text-[#0f2815] text-[11px] font-extrabold px-2.5 py-1 rounded-full shadow">
+          <span className="absolute top-1.5 right-1.5 sm:top-2 sm:right-2 bg-[#ffde59] text-[#0f2815] text-[10px] sm:text-[11px] font-extrabold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full shadow">
             Only {listing.quantity} left
           </span>
         )}
@@ -62,7 +62,7 @@ export function FoodCard({ listing }) {
         </p>
         {listing.pickupWindow && (
           <p className="mt-1 text-[10.5px] font-semibold text-[#0f7a3b] truncate flex items-center gap-1">
-            <IconClock size={12} className="shrink-0" />Pickup {shortPickup(listing.pickupWindow).replace(/^Today,/, "today,")}
+            <IconClock size={12} className="shrink-0" />{shortPickup(listing.pickupWindow)}
           </p>
         )}
         <div className="mt-auto pt-2.5 flex gap-1.5 sm:gap-2">
