@@ -1,4 +1,5 @@
 import React from 'react';
+import { getPickupCode } from "../../utils/formatters";
 import { useApp } from '../../context/AppContext';
 import { BusinessOrderStatusManager } from '../../components/business/BusinessOrderStatusManager';
 import { IconArrowLeft, IconMapPin, IconShieldCheck } from '../../components/common/Icons';
@@ -98,9 +99,9 @@ export function BusinessOrderDetail({ orderId, id, navigateBusiness }) {
             <span className="text-xs font-bold text-gray-900">Musa Ibrahim (bike)</span>
           </div>
           <div className="flex items-center justify-between">
-            <span className="text-xs text-gray-600">Verification PIN:</span>
+            <span className="text-xs text-gray-600">Customer code:</span>
             <span className="text-xs font-mono font-bold bg-amber-100 text-amber-900 px-2 py-0.5 rounded">
-              {order.deliveryPin || '4 8 2 9'}
+              {getPickupCode(order)}
             </span>
           </div>
         </div>
