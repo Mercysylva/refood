@@ -35,3 +35,9 @@ export function getOrderItemQty(it) {
   if (!it) return 1;
   return it.qty ?? it.quantity ?? 1;
 }
+
+// One pickup/delivery code per order, used on every screen so customers never see two different codes.
+export function getPickupCode(order) {
+  const id = String(order?.id || "");
+  return id.replace(/\D/g, "").slice(-7).padStart(7, "7").slice(0, 7) || "7328145";
+}
