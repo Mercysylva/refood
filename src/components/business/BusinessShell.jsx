@@ -1,3 +1,4 @@
+import { Avatar } from "../common/Avatar";
 import { IconLeaf, IconGrid, IconStore, IconClipboard, ICON_SIZE } from "../common/Icons";
 
 export function BusinessShell({ path, activePage, navigate, navigateBusiness, children }) {
@@ -98,7 +99,7 @@ export function BusinessShell({ path, activePage, navigate, navigateBusiness, ch
           <span className="lg:hidden font-extrabold text-[20px] tracking-[-0.06em] text-[#0f2815]">ReFood</span>
           <div className="flex items-center gap-2 shrink-0 ml-auto">
             <span className="hidden md:inline text-[11px] font-bold bg-[#0f7a3b]/10 text-[#0f7a3b] px-2.5 py-1 rounded-full">Verified</span>
-            <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=MamaB&backgroundColor=b6e3f4,c0aede`} alt="" className="w-8 h-8 rounded-full bg-[#eef3ec]" />
+            <Avatar name="Mama B" className="w-8 h-8" textClass="text-[12px]" />
           </div>
         </div>
         <main className="px-3 sm:px-4 lg:px-8 py-4 sm:py-6 lg:py-8 pb-28 sm:pb-6 w-full max-w-[1360px] mx-auto flex-1">
