@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useApp } from '../../context/AppContext';
 import { BackButton } from '../../components/common/BackButton';
+import { PickupCodeCard } from '../../components/customer/PickupCodeCard';
 import { Empty } from '../../components/common/Empty';
 import { IconStar } from '../../components/common/Icons';
 import { formatNaira, getOrderItemPrice, getOrderItemQty } from '../../utils/formatters';
@@ -36,6 +37,10 @@ export function OrderDetail({ orderId, id }) {
           {b?.name} • {new Date(orderDate).toLocaleString()}
         </p>
       </div>
+
+      {!isCompleted && order.status !== 'cancelled' && (
+        <PickupCodeCard order={order} businessName={b?.name} />
+      )}
 
       {/* Main Order Card */}
       <div className="bg-white rounded-2xl p-5 shadow-[0_2px_16px_rgba(0,0,0,0.05)] border border-[#eef3ec]">

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { PickupCodeCard } from "../../components/customer/PickupCodeCard";
 import { useApp } from "../../context/AppContext";
 import { formatNaira, getOrderItemPrice, getOrderItemQty } from "../../utils/formatters";
 import {
@@ -12,7 +13,6 @@ export function Orders() {
   const active = orders.filter(o => !["completed", "delivered", "cancelled"].includes(o.status));
   const completed = orders.filter(o => ["completed", "delivered"].includes(o.status));
   const cancelled = orders.filter(o => o.status === "cancelled");
-  const pickupCode = (id) => id.replace(/\D/g, '').slice(-7).padStart(7, '7').slice(0, 7) || "7328145";
 
   return (
     <div className="space-y-5">
@@ -42,7 +42,6 @@ export function Orders() {
                   {active.map(o => {
                     const b = businesses.find(x => x.id === o.businessId);
                     const isPickup = o.fulfillment === "pickup";
-                    const code = pickupCode(o.id);
                     const steps = isPickup
                       ? [{ k: "confirmed", l: "Confirmed" }, { k: "preparing", l: "Preparing" }, { k: "ready_for_pickup", l: "Ready" }, { k: "completed", l: "Picked up" }]
                       : [{ k: "confirmed", l: "Confirmed" }, { k: "preparing", l: "Preparing" }, { k: "on_the_way", l: "On the way" }, { k: "delivered", l: "Delivered" }];
@@ -58,6 +57,11 @@ export function Orders() {
                             </p>
                             <p className="text-[12px] text-[#5a6b5a] font-medium mt-1 flex items-center gap-1.5"><IconMapPin size={ICON_SM} />{b?.location} <span className="w-1 h-1 bg-[#c5d6c5] rounded-full"></span> {isPickup ? "Pickup" : "Delivery"} <span className="w-1 h-1 bg-[#c5d6c5] rounded-full"></span> {o.estimatedWindow}</p>
                           </div>
+                        </div>
+
+                        {/* Pickup code first: testers expected it to be the first thing they see */}
+                        <div className="px-3 sm:px-4 pb-3">
+                          <PickupCodeCard order={o} businessName={b?.name} compact />
                         </div>
 
                         {/* Stepper */}
@@ -78,19 +82,6 @@ export function Orders() {
                             })}
                           </div>
                           <p className="text-[11px] text-[#5a6b5a] font-medium mt-2">Estimated: {o.estimatedWindow} • {b?.name} to 12 Example St</p>
-                        </div>
-
-                        {/* 7-digit code */}
-                        <div className="mx-3 sm:mx-4 mt-3 bg-[#f7f8f6] rounded-xl p-3 border border-[#d4e6d4] border-dashed flex flex-col sm:flex-row items-center sm:justify-between gap-3">
-                          <div className="text-center sm:text-left">
-                            <p className="text-[10px] font-bold tracking-widest text-[#5a6b5a] uppercase">{isPickup ? "Show this code at pickup" : "Show this code at delivery"}</p>
-                            <p className="text-[11px] text-[#5a6b5a] font-medium">Share with rider/store to confirm</p>
-                          </div>
-                          <div className="flex gap-1 flex-wrap justify-center">
-                            {code.split("").map((d, i) => (
-                              <span key={i} className="w-7 h-7 bg-white rounded-lg grid place-items-center font-extrabold text-[#0f2815] text-[13px] shadow-sm border border-[#d4e6d4]">{d}</span>
-                            ))}
-                          </div>
                         </div>
 
                         <div className="p-3 flex gap-2">

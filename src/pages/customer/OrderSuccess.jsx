@@ -3,9 +3,10 @@ import { formatNaira, getOrderItemPrice, getOrderItemQty } from "../../utils/for
 import { IconCheck, IconChevronRight, ICON_SIZE } from "../../components/common/Icons";
 import { BackButton } from "../../components/common/BackButton";
 import { Empty } from "../../components/common/Empty";
+import { PickupCodeCard } from "../../components/customer/PickupCodeCard";
 
 export function OrderSuccess({ id }) {
-  const { orders, navigate } = useApp();
+  const { orders, businesses = [], navigate } = useApp();
   const order = orders.find(o => o.id === id);
 
   if (!order) return <Empty text="Order not found" />;
@@ -17,7 +18,11 @@ export function OrderSuccess({ id }) {
         <div className="w-16 h-16 bg-[#eef6ec] rounded-full grid place-items-center mx-auto text-[#0f7a3b]"><IconCheck size={ICON_SIZE} /></div>
         <h1 className="text-[20px] font-bold tracking-tight mt-4 text-[#0f2815]">Payment successful!</h1>
         <p className="text-[13.5px] leading-relaxed text-[#3a4a3a] mt-1 font-medium">Order #{order.id} is confirmed. Estimated window: {order.estimatedWindow}</p>
-        <div className="mt-5 bg-[#f7f8f6] rounded-2xl p-4 text-left text-sm border border-[#eef3ec]">
+        <div className="mt-5 text-left">
+          <PickupCodeCard order={order} businessName={businesses.find(b => b.id === order.businessId)?.name} />
+          <p className="mt-2 text-[11.5px] text-[#5a6b5a] font-medium">You can find this code any time in My orders.</p>
+        </div>
+        <div className="mt-4 bg-[#f7f8f6] rounded-2xl p-4 text-left text-sm border border-[#eef3ec]">
           <p className="font-bold text-[#0f2815]">Order summary</p>
           {order.items.map(it => <div key={it.listingId} className="flex justify-between mt-2 text-[#3a4a3a] font-medium"><span>{it.name} × {getOrderItemQty(it)}</span><span className="font-bold text-[#0f2815]">{formatNaira(getOrderItemPrice(it) * getOrderItemQty(it))}</span></div>)}
           <div className="flex justify-between font-bold border-t border-[#e0e8e0] mt-3 pt-3 text-[#0f2815]"><span>Total paid</span><span>{formatNaira(order.total)}</span></div>
