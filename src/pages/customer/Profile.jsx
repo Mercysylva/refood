@@ -308,25 +308,6 @@ export function Profile() {
         />
       </ProfileSection>
 
-      {/* SDG 12.3 Info Box */}
-      <div className="p-5 bg-gradient-to-r from-teal-900 to-emerald-950 rounded-2xl text-white flex items-center gap-4 border border-emerald-800/40 shadow-sm">
-        <div className="w-13 h-13 rounded-2xl bg-white/10 p-1.5 flex items-center justify-center shrink-0 border border-white/10">
-          <img
-            src="/sdg.png"
-            alt="UN SDG 12: Responsible Consumption"
-            className="w-full h-full object-contain rounded-xl"
-          />
-        </div>
-        <div>
-          <h3 className="text-xs font-extrabold uppercase tracking-wider text-emerald-400">
-            UN SDG 12.3: Responsible Consumption
-          </h3>
-          <p className="text-xs text-gray-300 mt-0.5 leading-relaxed">
-            By rescuing surplus meals on ReFood, you directly prevent food waste and reduce greenhouse gas emissions.
-          </p>
-        </div>
-      </div>
-
       {/* Log Out Button */}
       <button
         onClick={() => {

@@ -5,7 +5,6 @@ import { formatNaira, getListingPrice } from "../../utils/formatters";
 import { IconSearch, ICON_SIZE } from "../../components/common/Icons";
 import { FoodCard } from "../../components/customer/FoodCard";
 import { Empty } from "../../components/common/Empty";
-import { SdgImpactCard } from "../../components/common/SdgImpactCard";
 
 export function Browse() {
   const { listings, businesses, route } = useApp();
@@ -92,10 +91,6 @@ export function Browse() {
       </div>
       {filtered.length === 0 && <Empty text="No food found for your search." actionLabel="Clear filters" onAction={() => { setQ(""); setCat("All"); }} />}
 
-      {/* UN SDG Impact Box below products on Mobile View */}
-      <div className="lg:hidden mt-6">
-        <SdgImpactCard />
-      </div>
     </div>
   );
 }

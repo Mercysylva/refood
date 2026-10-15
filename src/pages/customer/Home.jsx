@@ -6,7 +6,6 @@ import { HeroBanner } from "../../components/common/HeroBanner";
 import { FoodCard } from "../../components/customer/FoodCard";
 import { Empty } from "../../components/common/Empty";
 
-import { SdgImpactCard } from "../../components/common/SdgImpactCard";
 
 export function Home() {
   const { listings, businesses, navigate } = useApp();
@@ -111,11 +110,6 @@ export function Home() {
           {filtered.slice(0, 8).map(l => <FoodCard key={l.id} listing={l} />)}
         </div>
         {filtered.length === 0 && <Empty text="No food found for your search." actionLabel="Clear search" onAction={() => setQ("")} />}
-        
-        {/* UN SDG Impact Box below products on Mobile View */}
-        <div className="lg:hidden mt-6">
-          <SdgImpactCard />
-        </div>
       </div>
     </div>
   );
