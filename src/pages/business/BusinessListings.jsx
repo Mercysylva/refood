@@ -95,8 +95,8 @@ export function BusinessListings({ navigateBusiness }) {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   {discountPercent > 0 && (
-                    <div className="absolute top-3 left-3 bg-red-600 text-white text-[11px] font-black px-2.5 py-1 rounded-full shadow-md">
-                      -{discountPercent}% OFF
+                    <div className="absolute top-3 left-3 bg-[#0f7a3b] text-white text-[11px] font-extrabold px-2.5 py-1 rounded-full shadow-md">
+                      {discountPercent}% off
                     </div>
                   )}
                   <div className="absolute bottom-3 left-3 bg-black/60 backdrop-blur-xs text-white text-[10px] font-semibold px-2 py-0.5 rounded-lg flex items-center gap-1">

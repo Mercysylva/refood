@@ -159,7 +159,7 @@ export function BusinessListingForm({ editId, navigateBusiness }) {
 
           <div className="flex flex-col justify-center text-center">
             <span className="text-xs text-gray-500 font-medium">Customer savings</span>
-            <span className="text-lg font-black text-emerald-700">{discountPercent}% OFF</span>
+            <span className="text-lg font-black text-emerald-700">{discountPercent}% off</span>
           </div>
         </div>
 
