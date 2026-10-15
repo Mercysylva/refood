@@ -47,7 +47,7 @@ export function FoodDetail({ id }) {
           />
           {discount > 0 && (
             <span className="absolute top-4 left-4 bg-[#0f7a3b] text-white text-xs font-bold px-2.5 py-1 rounded-md shadow-md">
-              {discount}% OFF
+              {discount}% off
             </span>
           )}
           <button

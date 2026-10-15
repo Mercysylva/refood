@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { Avatar } from "../../components/common/Avatar";
 import { useApp } from '../../context/AppContext';
 import { formatNaira, getOrderItemPrice, getOrderItemQty } from '../../utils/formatters';
 import {
@@ -126,11 +127,7 @@ export function Profile() {
       {/* Identity Card */}
       <div className="bg-[#f4f6f0] rounded-2xl p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center gap-4 border border-[#eef3ec]">
         <div className="relative shrink-0 w-fit">
-          <img
-            src={avatar || defaultNavbarAvatar}
-            alt="avatar"
-            className="w-24 h-24 rounded-full object-cover bg-white ring-4 ring-white shadow-sm"
-          />
+          <Avatar src={avatar || defaultNavbarAvatar} name={name || profileUser?.name} className="w-24 h-24 ring-4 ring-white shadow-sm" textClass="text-[30px]" />
           <button
             onClick={() => avatarRef.current?.click()}
             aria-label="Change photo"
